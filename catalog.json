@@ -1,0 +1,702 @@
+{
+  "featuredFolderIDs": [
+    "forest-dreams",
+    "deep-space",
+    "big-cats",
+    "renaissance",
+    "night-skylines"
+  ],
+  "categories": [
+    {
+      "id": "nature",
+      "title": "Nature",
+      "folderIDs": [
+        "nature-01",
+        "forest-dreams",
+        "ocean-waves",
+        "mountain-peaks"
+      ]
+    },
+    {
+      "id": "child",
+      "title": "childrens",
+      "folderIDs": [
+        "child-01",
+      ]
+    },
+    {
+      "id": "animaux",
+      "title": "Animaux",
+      "folderIDs": [
+        "big-cats",
+        "birds-of-prey",
+        "ocean-life"
+      ]
+    },
+    {
+      "id": "espace",
+      "title": "Espace",
+      "folderIDs": [
+        "deep-space",
+        "planets",
+        "aurora-skies"
+      ]
+    },
+    {
+      "id": "villes",
+      "title": "Villes du monde",
+      "folderIDs": [
+        "night-skylines",
+        "old-europe",
+        "asian-streets"
+      ]
+    },
+    {
+      "id": "art",
+      "title": "Art & Peinture",
+      "folderIDs": [
+        "renaissance",
+        "abstract-modern",
+        "watercolor-dreams"
+      ]
+    },
+    {
+      "id": "gastronomie",
+      "title": "Gastronomie",
+      "folderIDs": [
+        "pastry-shop",
+        "street-food",
+        "coffee-culture"
+      ]
+    }
+  ],
+  "folders": [
+      {
+        "id": "child-01",
+        "title": "Children - Set 1",
+        "artist": "Freepik",
+        "coverImageURL": "https://picsum.photos/seed/forest-dreams-cover/800/600",
+        "images": [
+          {
+            "id": "forest-dreams-1",
+            "title": "Premier plan",
+            "imageURL": "https://picsum.photos/seed/forest-dreams-1/1400/1050"
+          },
+          {
+            "id": "forest-dreams-2",
+            "title": "Lumière du matin",
+            "imageURL": "https://picsum.photos/seed/forest-dreams-2/1400/1050"
+          },
+          {
+            "id": "forest-dreams-3",
+            "title": "Détail",
+            "imageURL": "https://picsum.photos/seed/forest-dreams-3/900/1400"
+          },
+          {
+            "id": "forest-dreams-4",
+            "title": "Grand angle",
+            "imageURL": "https://picsum.photos/seed/forest-dreams-4/1050/1400"
+          },
+          {
+            "id": "forest-dreams-5",
+            "title": "Golden hour",
+            "imageURL": "https://picsum.photos/seed/forest-dreams-5/1050/1400"
+          }
+        ]
+      },
+    {
+      "id": "forest-dreams",
+      "title": "Forêt Enchantée",
+      "artist": "Studio Aurora",
+      "coverImageURL": "https://picsum.photos/seed/forest-dreams-cover/800/600",
+      "images": [
+        {
+          "id": "forest-dreams-1",
+          "title": "Premier plan",
+          "imageURL": "https://picsum.photos/seed/forest-dreams-1/1400/1050"
+        },
+        {
+          "id": "forest-dreams-2",
+          "title": "Lumière du matin",
+          "imageURL": "https://picsum.photos/seed/forest-dreams-2/1400/1050"
+        },
+        {
+          "id": "forest-dreams-3",
+          "title": "Détail",
+          "imageURL": "https://picsum.photos/seed/forest-dreams-3/900/1400"
+        },
+        {
+          "id": "forest-dreams-4",
+          "title": "Grand angle",
+          "imageURL": "https://picsum.photos/seed/forest-dreams-4/1050/1400"
+        },
+        {
+          "id": "forest-dreams-5",
+          "title": "Golden hour",
+          "imageURL": "https://picsum.photos/seed/forest-dreams-5/1050/1400"
+        }
+      ]
+    },
+    {
+      "id": "ocean-waves",
+      "title": "Vagues Infinies",
+      "artist": "Studio Aurora",
+      "coverImageURL": "https://picsum.photos/seed/ocean-waves-cover/800/600",
+      "images": [
+        {
+          "id": "ocean-waves-1",
+          "title": "Premier plan",
+          "imageURL": "https://picsum.photos/seed/ocean-waves-1/1050/1400"
+        },
+        {
+          "id": "ocean-waves-2",
+          "title": "Lumière du matin",
+          "imageURL": "https://picsum.photos/seed/ocean-waves-2/1400/1050"
+        },
+        {
+          "id": "ocean-waves-3",
+          "title": "Détail",
+          "imageURL": "https://picsum.photos/seed/ocean-waves-3/1500/1000"
+        },
+        {
+          "id": "ocean-waves-4",
+          "title": "Grand angle",
+          "imageURL": "https://picsum.photos/seed/ocean-waves-4/1400/1050"
+        },
+        {
+          "id": "ocean-waves-5",
+          "title": "Golden hour",
+          "imageURL": "https://picsum.photos/seed/ocean-waves-5/1500/1000"
+        }
+      ]
+    },
+    {
+      "id": "mountain-peaks",
+      "title": "Sommets",
+      "artist": "Atelier Nord",
+      "coverImageURL": "https://picsum.photos/seed/mountain-peaks-cover/800/600",
+      "images": [
+        {
+          "id": "mountain-peaks-1",
+          "title": "Premier plan",
+          "imageURL": "https://picsum.photos/seed/mountain-peaks-1/1300/1300"
+        },
+        {
+          "id": "mountain-peaks-2",
+          "title": "Lumière du matin",
+          "imageURL": "https://picsum.photos/seed/mountain-peaks-2/1400/1050"
+        },
+        {
+          "id": "mountain-peaks-3",
+          "title": "Détail",
+          "imageURL": "https://picsum.photos/seed/mountain-peaks-3/1400/1050"
+        },
+        {
+          "id": "mountain-peaks-4",
+          "title": "Grand angle",
+          "imageURL": "https://picsum.photos/seed/mountain-peaks-4/1400/1050"
+        },
+        {
+          "id": "mountain-peaks-5",
+          "title": "Golden hour",
+          "imageURL": "https://picsum.photos/seed/mountain-peaks-5/1050/1400"
+        }
+      ]
+    },
+    {
+      "id": "big-cats",
+      "title": "Grands Félins",
+      "artist": "Wild Focus",
+      "coverImageURL": "https://picsum.photos/seed/big-cats-cover/800/600",
+      "images": [
+        {
+          "id": "big-cats-1",
+          "title": "Premier plan",
+          "imageURL": "https://picsum.photos/seed/big-cats-1/1050/1400"
+        },
+        {
+          "id": "big-cats-2",
+          "title": "Lumière du matin",
+          "imageURL": "https://picsum.photos/seed/big-cats-2/1500/1000"
+        },
+        {
+          "id": "big-cats-3",
+          "title": "Détail",
+          "imageURL": "https://picsum.photos/seed/big-cats-3/1500/1000"
+        },
+        {
+          "id": "big-cats-4",
+          "title": "Grand angle",
+          "imageURL": "https://picsum.photos/seed/big-cats-4/1400/1050"
+        },
+        {
+          "id": "big-cats-5",
+          "title": "Golden hour",
+          "imageURL": "https://picsum.photos/seed/big-cats-5/1500/1000"
+        }
+      ]
+    },
+    {
+      "id": "birds-of-prey",
+      "title": "Rapaces",
+      "artist": "Wild Focus",
+      "coverImageURL": "https://picsum.photos/seed/birds-of-prey-cover/800/600",
+      "images": [
+        {
+          "id": "birds-of-prey-1",
+          "title": "Premier plan",
+          "imageURL": "https://picsum.photos/seed/birds-of-prey-1/1050/1400"
+        },
+        {
+          "id": "birds-of-prey-2",
+          "title": "Lumière du matin",
+          "imageURL": "https://picsum.photos/seed/birds-of-prey-2/1500/1000"
+        },
+        {
+          "id": "birds-of-prey-3",
+          "title": "Détail",
+          "imageURL": "https://picsum.photos/seed/birds-of-prey-3/1300/1300"
+        },
+        {
+          "id": "birds-of-prey-4",
+          "title": "Grand angle",
+          "imageURL": "https://picsum.photos/seed/birds-of-prey-4/1050/1400"
+        },
+        {
+          "id": "birds-of-prey-5",
+          "title": "Golden hour",
+          "imageURL": "https://picsum.photos/seed/birds-of-prey-5/1300/1300"
+        }
+      ]
+    },
+    {
+      "id": "ocean-life",
+      "title": "Vie Marine",
+      "artist": "Blue Lens",
+      "coverImageURL": "https://picsum.photos/seed/ocean-life-cover/800/600",
+      "images": [
+        {
+          "id": "ocean-life-1",
+          "title": "Premier plan",
+          "imageURL": "https://picsum.photos/seed/ocean-life-1/1500/1000"
+        },
+        {
+          "id": "ocean-life-2",
+          "title": "Lumière du matin",
+          "imageURL": "https://picsum.photos/seed/ocean-life-2/900/1400"
+        },
+        {
+          "id": "ocean-life-3",
+          "title": "Détail",
+          "imageURL": "https://picsum.photos/seed/ocean-life-3/1400/1050"
+        },
+        {
+          "id": "ocean-life-4",
+          "title": "Grand angle",
+          "imageURL": "https://picsum.photos/seed/ocean-life-4/1050/1400"
+        },
+        {
+          "id": "ocean-life-5",
+          "title": "Golden hour",
+          "imageURL": "https://picsum.photos/seed/ocean-life-5/1300/1300"
+        }
+      ]
+    },
+    {
+      "id": "deep-space",
+      "title": "Espace Profond",
+      "artist": "Nebula Studio",
+      "coverImageURL": "https://picsum.photos/seed/deep-space-cover/800/600",
+      "images": [
+        {
+          "id": "deep-space-1",
+          "title": "Premier plan",
+          "imageURL": "https://picsum.photos/seed/deep-space-1/900/1400"
+        },
+        {
+          "id": "deep-space-2",
+          "title": "Lumière du matin",
+          "imageURL": "https://picsum.photos/seed/deep-space-2/900/1400"
+        },
+        {
+          "id": "deep-space-3",
+          "title": "Détail",
+          "imageURL": "https://picsum.photos/seed/deep-space-3/1050/1400"
+        },
+        {
+          "id": "deep-space-4",
+          "title": "Grand angle",
+          "imageURL": "https://picsum.photos/seed/deep-space-4/1050/1400"
+        },
+        {
+          "id": "deep-space-5",
+          "title": "Golden hour",
+          "imageURL": "https://picsum.photos/seed/deep-space-5/900/1400"
+        }
+      ]
+    },
+    {
+      "id": "planets",
+      "title": "Planètes",
+      "artist": "Nebula Studio",
+      "coverImageURL": "https://picsum.photos/seed/planets-cover/800/600",
+      "images": [
+        {
+          "id": "planets-1",
+          "title": "Premier plan",
+          "imageURL": "https://picsum.photos/seed/planets-1/1400/1050"
+        },
+        {
+          "id": "planets-2",
+          "title": "Lumière du matin",
+          "imageURL": "https://picsum.photos/seed/planets-2/1400/1050"
+        },
+        {
+          "id": "planets-3",
+          "title": "Détail",
+          "imageURL": "https://picsum.photos/seed/planets-3/1300/1300"
+        },
+        {
+          "id": "planets-4",
+          "title": "Grand angle",
+          "imageURL": "https://picsum.photos/seed/planets-4/1400/1050"
+        },
+        {
+          "id": "planets-5",
+          "title": "Golden hour",
+          "imageURL": "https://picsum.photos/seed/planets-5/900/1400"
+        }
+      ]
+    },
+    {
+      "id": "aurora-skies",
+      "title": "Ciels d'Aurore",
+      "artist": "Nebula Studio",
+      "coverImageURL": "https://picsum.photos/seed/aurora-skies-cover/800/600",
+      "images": [
+        {
+          "id": "aurora-skies-1",
+          "title": "Premier plan",
+          "imageURL": "https://picsum.photos/seed/aurora-skies-1/900/1400"
+        },
+        {
+          "id": "aurora-skies-2",
+          "title": "Lumière du matin",
+          "imageURL": "https://picsum.photos/seed/aurora-skies-2/1500/1000"
+        },
+        {
+          "id": "aurora-skies-3",
+          "title": "Détail",
+          "imageURL": "https://picsum.photos/seed/aurora-skies-3/900/1400"
+        },
+        {
+          "id": "aurora-skies-4",
+          "title": "Grand angle",
+          "imageURL": "https://picsum.photos/seed/aurora-skies-4/1400/1050"
+        },
+        {
+          "id": "aurora-skies-5",
+          "title": "Golden hour",
+          "imageURL": "https://picsum.photos/seed/aurora-skies-5/1300/1300"
+        }
+      ]
+    },
+    {
+      "id": "night-skylines",
+      "title": "Skylines Nocturnes",
+      "artist": "Urban Frame",
+      "coverImageURL": "https://picsum.photos/seed/night-skylines-cover/800/600",
+      "images": [
+        {
+          "id": "night-skylines-1",
+          "title": "Premier plan",
+          "imageURL": "https://picsum.photos/seed/night-skylines-1/1500/1000"
+        },
+        {
+          "id": "night-skylines-2",
+          "title": "Lumière du matin",
+          "imageURL": "https://picsum.photos/seed/night-skylines-2/1400/1050"
+        },
+        {
+          "id": "night-skylines-3",
+          "title": "Détail",
+          "imageURL": "https://picsum.photos/seed/night-skylines-3/1300/1300"
+        },
+        {
+          "id": "night-skylines-4",
+          "title": "Grand angle",
+          "imageURL": "https://picsum.photos/seed/night-skylines-4/1400/1050"
+        },
+        {
+          "id": "night-skylines-5",
+          "title": "Golden hour",
+          "imageURL": "https://picsum.photos/seed/night-skylines-5/1500/1000"
+        }
+      ]
+    },
+    {
+      "id": "old-europe",
+      "title": "Vieille Europe",
+      "artist": "Urban Frame",
+      "coverImageURL": "https://picsum.photos/seed/old-europe-cover/800/600",
+      "images": [
+        {
+          "id": "old-europe-1",
+          "title": "Premier plan",
+          "imageURL": "https://picsum.photos/seed/old-europe-1/900/1400"
+        },
+        {
+          "id": "old-europe-2",
+          "title": "Lumière du matin",
+          "imageURL": "https://picsum.photos/seed/old-europe-2/1500/1000"
+        },
+        {
+          "id": "old-europe-3",
+          "title": "Détail",
+          "imageURL": "https://picsum.photos/seed/old-europe-3/900/1400"
+        },
+        {
+          "id": "old-europe-4",
+          "title": "Grand angle",
+          "imageURL": "https://picsum.photos/seed/old-europe-4/1500/1000"
+        },
+        {
+          "id": "old-europe-5",
+          "title": "Golden hour",
+          "imageURL": "https://picsum.photos/seed/old-europe-5/1050/1400"
+        }
+      ]
+    },
+    {
+      "id": "asian-streets",
+      "title": "Rues d'Asie",
+      "artist": "Urban Frame",
+      "coverImageURL": "https://picsum.photos/seed/asian-streets-cover/800/600",
+      "images": [
+        {
+          "id": "asian-streets-1",
+          "title": "Premier plan",
+          "imageURL": "https://picsum.photos/seed/asian-streets-1/1400/1050"
+        },
+        {
+          "id": "asian-streets-2",
+          "title": "Lumière du matin",
+          "imageURL": "https://picsum.photos/seed/asian-streets-2/1400/1050"
+        },
+        {
+          "id": "asian-streets-3",
+          "title": "Détail",
+          "imageURL": "https://picsum.photos/seed/asian-streets-3/1050/1400"
+        },
+        {
+          "id": "asian-streets-4",
+          "title": "Grand angle",
+          "imageURL": "https://picsum.photos/seed/asian-streets-4/900/1400"
+        },
+        {
+          "id": "asian-streets-5",
+          "title": "Golden hour",
+          "imageURL": "https://picsum.photos/seed/asian-streets-5/1400/1050"
+        }
+      ]
+    },
+    {
+      "id": "renaissance",
+      "title": "Renaissance",
+      "artist": "Galerie Lumière",
+      "coverImageURL": "https://picsum.photos/seed/renaissance-cover/800/600",
+      "images": [
+        {
+          "id": "renaissance-1",
+          "title": "Premier plan",
+          "imageURL": "https://picsum.photos/seed/renaissance-1/1050/1400"
+        },
+        {
+          "id": "renaissance-2",
+          "title": "Lumière du matin",
+          "imageURL": "https://picsum.photos/seed/renaissance-2/1400/1050"
+        },
+        {
+          "id": "renaissance-3",
+          "title": "Détail",
+          "imageURL": "https://picsum.photos/seed/renaissance-3/1300/1300"
+        },
+        {
+          "id": "renaissance-4",
+          "title": "Grand angle",
+          "imageURL": "https://picsum.photos/seed/renaissance-4/900/1400"
+        },
+        {
+          "id": "renaissance-5",
+          "title": "Golden hour",
+          "imageURL": "https://picsum.photos/seed/renaissance-5/1300/1300"
+        }
+      ]
+    },
+    {
+      "id": "abstract-modern",
+      "title": "Abstrait Moderne",
+      "artist": "Galerie Lumière",
+      "coverImageURL": "https://picsum.photos/seed/abstract-modern-cover/800/600",
+      "images": [
+        {
+          "id": "abstract-modern-1",
+          "title": "Premier plan",
+          "imageURL": "https://picsum.photos/seed/abstract-modern-1/900/1400"
+        },
+        {
+          "id": "abstract-modern-2",
+          "title": "Lumière du matin",
+          "imageURL": "https://picsum.photos/seed/abstract-modern-2/1050/1400"
+        },
+        {
+          "id": "abstract-modern-3",
+          "title": "Détail",
+          "imageURL": "https://picsum.photos/seed/abstract-modern-3/900/1400"
+        },
+        {
+          "id": "abstract-modern-4",
+          "title": "Grand angle",
+          "imageURL": "https://picsum.photos/seed/abstract-modern-4/900/1400"
+        },
+        {
+          "id": "abstract-modern-5",
+          "title": "Golden hour",
+          "imageURL": "https://picsum.photos/seed/abstract-modern-5/1050/1400"
+        }
+      ]
+    },
+    {
+      "id": "watercolor-dreams",
+      "title": "Rêves à l'Aquarelle",
+      "artist": "Galerie Lumière",
+      "coverImageURL": "https://picsum.photos/seed/watercolor-dreams-cover/800/600",
+      "images": [
+        {
+          "id": "watercolor-dreams-1",
+          "title": "Premier plan",
+          "imageURL": "https://picsum.photos/seed/watercolor-dreams-1/900/1400"
+        },
+        {
+          "id": "watercolor-dreams-2",
+          "title": "Lumière du matin",
+          "imageURL": "https://picsum.photos/seed/watercolor-dreams-2/1400/1050"
+        },
+        {
+          "id": "watercolor-dreams-3",
+          "title": "Détail",
+          "imageURL": "https://picsum.photos/seed/watercolor-dreams-3/1500/1000"
+        },
+        {
+          "id": "watercolor-dreams-4",
+          "title": "Grand angle",
+          "imageURL": "https://picsum.photos/seed/watercolor-dreams-4/1050/1400"
+        },
+        {
+          "id": "watercolor-dreams-5",
+          "title": "Golden hour",
+          "imageURL": "https://picsum.photos/seed/watercolor-dreams-5/1500/1000"
+        }
+      ]
+    },
+    {
+      "id": "pastry-shop",
+      "title": "Pâtisserie",
+      "artist": "Bon Appétit Studio",
+      "coverImageURL": "https://picsum.photos/seed/pastry-shop-cover/800/600",
+      "images": [
+        {
+          "id": "pastry-shop-1",
+          "title": "Premier plan",
+          "imageURL": "https://picsum.photos/seed/pastry-shop-1/1050/1400"
+        },
+        {
+          "id": "pastry-shop-2",
+          "title": "Lumière du matin",
+          "imageURL": "https://picsum.photos/seed/pastry-shop-2/1050/1400"
+        },
+        {
+          "id": "pastry-shop-3",
+          "title": "Détail",
+          "imageURL": "https://picsum.photos/seed/pastry-shop-3/1300/1300"
+        },
+        {
+          "id": "pastry-shop-4",
+          "title": "Grand angle",
+          "imageURL": "https://picsum.photos/seed/pastry-shop-4/1300/1300"
+        },
+        {
+          "id": "pastry-shop-5",
+          "title": "Golden hour",
+          "imageURL": "https://picsum.photos/seed/pastry-shop-5/900/1400"
+        }
+      ]
+    },
+    {
+      "id": "street-food",
+      "title": "Street Food",
+      "artist": "Bon Appétit Studio",
+      "coverImageURL": "https://picsum.photos/seed/street-food-cover/800/600",
+      "images": [
+        {
+          "id": "street-food-1",
+          "title": "Premier plan",
+          "imageURL": "https://picsum.photos/seed/street-food-1/1500/1000"
+        },
+        {
+          "id": "street-food-2",
+          "title": "Lumière du matin",
+          "imageURL": "https://picsum.photos/seed/street-food-2/1050/1400"
+        },
+        {
+          "id": "street-food-3",
+          "title": "Détail",
+          "imageURL": "https://picsum.photos/seed/street-food-3/900/1400"
+        },
+        {
+          "id": "street-food-4",
+          "title": "Grand angle",
+          "imageURL": "https://picsum.photos/seed/street-food-4/1400/1050"
+        },
+        {
+          "id": "street-food-5",
+          "title": "Golden hour",
+          "imageURL": "https://picsum.photos/seed/street-food-5/1050/1400"
+        }
+      ]
+    },
+    {
+      "id": "coffee-culture",
+      "title": "Culture Café",
+      "artist": "Bon Appétit Studio",
+      "coverImageURL": "https://picsum.photos/seed/coffee-culture-cover/800/600",
+      "images": [
+        {
+          "id": "coffee-culture-1",
+          "title": "Premier plan",
+          "imageURL": "https://picsum.photos/seed/coffee-culture-1/1400/1050"
+        },
+        {
+          "id": "coffee-culture-2",
+          "title": "Lumière du matin",
+          "imageURL": "https://picsum.photos/seed/coffee-culture-2/900/1400"
+        },
+        {
+          "id": "coffee-culture-3",
+          "title": "Détail",
+          "imageURL": "https://picsum.photos/seed/coffee-culture-3/1300/1300"
+        },
+        {
+          "id": "coffee-culture-4",
+          "title": "Grand angle",
+          "imageURL": "https://picsum.photos/seed/coffee-culture-4/900/1400"
+        },
+        {
+          "id": "coffee-culture-5",
+          "title": "Golden hour",
+          "imageURL": "https://picsum.photos/seed/coffee-culture-5/1400/1050"
+        }
+      ]
+    }
+  ]
+}
