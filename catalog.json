@@ -75,32 +75,43 @@
         "id": "child-01",
         "title": "Children - Set 1",
         "artist": "Freepik",
-        "coverImageURL": "https://picsum.photos/seed/forest-dreams-cover/800/600",
         "images": [
           {
-            "id": "forest-dreams-1",
-            "title": "Premier plan",
-            "imageURL": "https://picsum.photos/seed/forest-dreams-1/1400/1050"
+            "id": "child/child-01"
           },
           {
-            "id": "forest-dreams-2",
-            "title": "Lumière du matin",
-            "imageURL": "https://picsum.photos/seed/forest-dreams-2/1400/1050"
+              "id": "child/child-02"
           },
           {
-            "id": "forest-dreams-3",
-            "title": "Détail",
-            "imageURL": "https://picsum.photos/seed/forest-dreams-3/900/1400"
+              "id": "child/child-03"
           },
           {
-            "id": "forest-dreams-4",
-            "title": "Grand angle",
-            "imageURL": "https://picsum.photos/seed/forest-dreams-4/1050/1400"
+              "id": "child/child-04"
           },
           {
-            "id": "forest-dreams-5",
-            "title": "Golden hour",
-            "imageURL": "https://picsum.photos/seed/forest-dreams-5/1050/1400"
+              "id": "child/child-05"
+          }
+        ]
+      },
+      {
+        "id": "nature-01",
+        "title": "Nature - Set 1",
+        "artist": "Freepik",
+        "images": [
+          {
+            "id": "nature/nature-01"
+          },
+          {
+              "id": "nature/nature-02"
+          },
+          {
+              "id": "nature/nature-03"
+          },
+          {
+              "id": "nature/nature-04"
+          },
+          {
+              "id": "nature/nature-05"
           }
         ]
       },
