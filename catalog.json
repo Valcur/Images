@@ -77,19 +77,19 @@
         "artist": "Freepik",
         "images": [
           {
-            "id": "child/child-01"
+            "id": "child/child-01/01"
           },
           {
-              "id": "child/child-02"
+              "id": "child/child-01/02"
           },
           {
-              "id": "child/child-03"
+              "id": "child/child-01/03"
           },
           {
-              "id": "child/child-04"
+              "id": "child/child-01/04"
           },
           {
-              "id": "child/child-05"
+              "id": "child/child-01/05"
           }
         ]
       },
@@ -99,19 +99,19 @@
         "artist": "Freepik",
         "images": [
           {
-            "id": "nature/nature-01"
+            "id": "nature/nature-01/01"
           },
           {
-              "id": "nature/nature-02"
+              "id": "nature/nature-01/02"
           },
           {
-              "id": "nature/nature-03"
+              "id": "nature/nature-01/03"
           },
           {
-              "id": "nature/nature-04"
+              "id": "nature/nature-01/04"
           },
           {
-              "id": "nature/nature-05"
+              "id": "nature/nature-01/05"
           }
         ]
       },
