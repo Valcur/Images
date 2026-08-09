@@ -11,6 +11,7 @@
       "id": "nature",
       "title": "Nature",
       "folderIDs": [
+        "dogs-01",
         "nature-01",
         "forest-dreams",
         "ocean-waves",
@@ -90,6 +91,21 @@
           },
           {
               "id": "child/child-01/05"
+          },
+          {
+              "id": "child/child-01/06"
+          },
+          {
+              "id": "child/child-01/07"
+          },
+          {
+              "id": "child/child-01/08"
+          },
+          {
+              "id": "child/child-01/09"
+          },
+          {
+              "id": "child/child-01/10"
           }
         ]
       },
@@ -112,6 +128,58 @@
           },
           {
               "id": "animals/animals-01/05"
+          },
+          {
+              "id": "animals/animals-01/06"
+          },
+          {
+              "id": "animals/animals-01/07"
+          },
+          {
+              "id": "animals/animals-01/08"
+          },
+          {
+              "id": "animals/animals-01/09"
+          },
+          {
+              "id": "animals/animals-01/10"
+          }
+        ]
+      },
+      {
+        "id": "dogs-01",
+        "title": "Dogs - Set 1",
+        "artist": "Freepik",
+        "images": [
+          {
+            "id": "animals/dogs-01/01"
+          },
+          {
+              "id": "animals/dogs-01/02"
+          },
+          {
+              "id": "animals/dogs-01/03"
+          },
+          {
+              "id": "animals/dogs-01/04"
+          },
+          {
+              "id": "animals/dogs-01/05"
+          },
+          {
+              "id": "animals/dogs-01/06"
+          },
+          {
+              "id": "animals/dogs-01/07"
+          },
+          {
+              "id": "animals/dogs-01/08"
+          },
+          {
+              "id": "animals/dogs-01/09"
+          },
+          {
+              "id": "animals/dogs-01/10"
           }
         ]
       },
