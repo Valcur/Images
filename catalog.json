@@ -75,7 +75,6 @@
         "id": "child-01",
         "title": "Children - Set 1",
         "artist": "Freepik",
-        "coverImageURL": "https://picsum.photos/seed/forest-dreams-cover/800/600",
         "images": [
           {
             "id": "child/child-01"
@@ -98,7 +97,6 @@
         "id": "nature-01",
         "title": "Nature - Set 1",
         "artist": "Freepik",
-        "coverImageURL": "https://picsum.photos/seed/forest-dreams-cover/800/600",
         "images": [
           {
             "id": "nature/nature-01"
