@@ -1,4 +1,7 @@
 {
-    "title": "City - 1",
-    "artist": "Freepik",
+  "title": {
+    "en": "City - 1",
+    "fr": "Ville - 1"
+  },
+  "artist": "Freepik"
 }

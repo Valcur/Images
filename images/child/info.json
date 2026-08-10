@@ -1,3 +1,6 @@
 {
-    "title": "Child"
+  "title": {
+    "en": "Child",
+    "fr": "Enfant"
+  }
 }

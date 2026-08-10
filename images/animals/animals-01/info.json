@@ -1,4 +1,7 @@
 {
-    "title": "Animals - 1",
-    "artist": "Freepik",
+  "title": {
+    "en": "Animals - 1",
+    "fr": "Animaux - 1"
+  },
+  "artist": "Freepik"
 }

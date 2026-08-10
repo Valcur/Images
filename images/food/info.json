@@ -1,3 +1,6 @@
 {
-    "title": "Food"
+  "title": {
+    "en": "Food",
+    "fr": "Nourriture"
+  }
 }

@@ -1,4 +1,7 @@
 {
-    "title": "Food - 1",
-    "artist": "Pexels",
+  "title": {
+    "en": "Food - 1",
+    "fr": "Nourriture - 1"
+  },
+  "artist": "Pexels"
 }

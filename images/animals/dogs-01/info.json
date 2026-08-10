@@ -1,4 +1,7 @@
 {
-    "title": "Dogs - 1",
-    "artist": "Freepik",
+  "title": {
+    "en": "Dogs - 1",
+    "fr": "Chiens - 1"
+  },
+  "artist": "Freepik"
 }

@@ -1,4 +1,7 @@
 {
-    "title": "Child - 1",
-    "artist": "Freepik",
+  "title": {
+    "en": "Child - 1",
+    "fr": "Enfant - 1"
+  },
+  "artist": "Freepik"
 }

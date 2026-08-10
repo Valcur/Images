@@ -8,12 +8,20 @@
  * Ce script :
  *  - parcourt images/<categorie>/<dossier>/
  *  - reconstruit "categories" et "folders" de catalog.json
- *  - lit les info.json (titre/artiste) de chaque catégorie et dossier
+ *  - lit les info.json (titre/artiste) de chaque catégorie et dossier,
+ *    de façon tolérante aux petites erreurs de syntaxe (virgules finales...)
+ *  - si le "title" d'un info.json est une chaine, le traduit automatiquement
+ *    en objet { "en": "...", "fr": "..." } et réécrit l'info.json avec cet
+ *    objet (si le title est déjà un objet, il est repris tel quel)
  *  - renumérote les images en 01, 02, 03... (sans toucher à celles déjà
  *    correctement numérotées)
  *  - convertit en .jpg les images qui ne sont pas réellement au format JPEG
  *    (nécessite le module "sharp" : npm install sharp)
+ *  - maintient une catégorie "nouveaute" : tout nouveau sous-dossier détecté
+ *    est ajouté au début (max 10 au total, les plus anciens sont éjectés)
  *  - conserve featuredFolderIDs tel quel
+ *
+ * Nécessite Node.js >= 18 (fetch natif) pour la traduction automatique.
  */
 
 const fs = require('fs');
@@ -30,8 +38,10 @@ const ROOT_DIR = __dirname;
 const CATALOG_PATH = path.join(ROOT_DIR, 'catalog.json');
 const IMAGES_DIR = path.join(ROOT_DIR, 'images');
 const TARGET_EXT = '.jpg';
+const NOUVEAUTE_ID = 'nouveaute';
+const NOUVEAUTE_MAX = 10;
 
-// ---------- Utilitaires ----------
+// ---------- Utilitaires génériques ----------
 
 function naturalSort(a, b) {
   return a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' });
@@ -45,29 +55,84 @@ function listDirs(p) {
     .sort(naturalSort);
 }
 
-function readInfoJson(folderPath) {
-  const infoPath = path.join(folderPath, 'info.json');
-  if (fs.existsSync(infoPath)) {
-    try {
-      return JSON.parse(fs.readFileSync(infoPath, 'utf8'));
-    } catch (err) {
-      console.warn(`⚠️  info.json invalide dans ${folderPath}: ${err.message}`);
-      return {};
-    }
-  }
-  return {};
-}
-
-// catalog.json fourni en exemple contient des virgules finales (trailing
-// commas), ce qui n'est pas du JSON strict. On les tolère à la lecture.
+// Tolère les virgules finales (trailing commas), fréquentes dans les
+// info.json édités à la main.
 function parseLenientJSON(text) {
   const cleaned = text.replace(/,(\s*[\]}])/g, '$1');
   return JSON.parse(cleaned);
 }
 
+function readInfoJson(folderPath) {
+  const infoPath = path.join(folderPath, 'info.json');
+  if (!fs.existsSync(infoPath)) {
+    return { data: {}, infoPath, exists: false };
+  }
+  try {
+    const data = parseLenientJSON(fs.readFileSync(infoPath, 'utf8'));
+    return { data, infoPath, exists: true };
+  } catch (err) {
+    console.warn(`⚠️  info.json invalide dans ${folderPath}: ${err.message}`);
+    return { data: {}, infoPath, exists: true };
+  }
+}
+
 function pad(num, width) {
   return String(num).padStart(width, '0');
 }
+
+// ---------- Traduction automatique ----------
+
+async function detectAndTranslate(text, targetLang) {
+  const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(
+    text
+  )}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const data = await res.json();
+  const translated = data[0].map((chunk) => chunk[0]).join('');
+  const detectedLang = data[2];
+  return { translated, detectedLang };
+}
+
+async function translateToObject(text) {
+  try {
+    const toEn = await detectAndTranslate(text, 'en');
+    const detected = toEn.detectedLang;
+    const en = detected === 'en' ? text : toEn.translated;
+    let fr;
+    if (detected === 'fr') {
+      fr = text;
+    } else {
+      const toFr = await detectAndTranslate(text, 'fr');
+      fr = toFr.translated;
+    }
+    return { en, fr };
+  } catch (err) {
+    console.warn(`⚠️  Traduction impossible pour "${text}" (${err.message}) — en/fr réglés sur le texte original.`);
+    return { en: text, fr: text };
+  }
+}
+
+// Retourne le title prêt à mettre dans catalog.json (objet {en, fr} ou null
+// si aucun title n'est défini dans l'info.json). Si le title était une
+// chaine, le traduit et réécrit l'info.json avec l'objet obtenu.
+async function resolveTitle(infoResult) {
+  const { data, infoPath, exists } = infoResult;
+  if (!exists || data.title === undefined || data.title === null) {
+    return null;
+  }
+  if (typeof data.title === 'string') {
+    const translated = await translateToObject(data.title);
+    const updated = { ...data, title: translated };
+    fs.writeFileSync(infoPath, JSON.stringify(updated, null, 2) + '\n', 'utf8');
+    console.log(`   🌐 Titre traduit : "${data.title}" → { en: "${translated.en}", fr: "${translated.fr}" }`);
+    return translated;
+  }
+  // déjà un objet : on le reprend tel quel
+  return data.title;
+}
+
+// ---------- Conversion / renommage des images ----------
 
 async function detectRealExtension(filePath) {
   if (!sharp) return path.extname(filePath).toLowerCase();
@@ -108,7 +173,8 @@ async function ensureJpg(filePath) {
 
 async function processSubfolder(categoryFolder, subFolderName) {
   const subFolderPath = path.join(IMAGES_DIR, categoryFolder, subFolderName);
-  const info = readInfoJson(subFolderPath);
+  const infoResult = readInfoJson(subFolderPath);
+  const info = infoResult.data;
 
   let files = fs
     .readdirSync(subFolderPath, { withFileTypes: true })
@@ -131,7 +197,6 @@ async function processSubfolder(categoryFolder, subFolderName) {
   const width = Math.max(2, String(total).length);
   const targets = files.map((_, idx) => `${pad(idx + 1, width)}${TARGET_EXT}`);
 
-  // Renommage en 2 passes via des noms temporaires pour éviter les collisions
   const tempNames = files.map((name, idx) => `__tmp_${idx}__${name}`);
   files.forEach((name, idx) => {
     if (name !== targets[idx]) {
@@ -150,9 +215,11 @@ async function processSubfolder(categoryFolder, subFolderName) {
     id: `${folderId}/${path.basename(name, TARGET_EXT)}`,
   }));
 
+  const translatedTitle = await resolveTitle(infoResult);
+
   return {
     id: folderId,
-    title: info.title || subFolderName,
+    title: translatedTitle || subFolderName,
     artist: info.artist || 'Freepik',
     images,
   };
@@ -175,17 +242,25 @@ async function main() {
   }
 
   const existingCatalog = parseLenientJSON(fs.readFileSync(CATALOG_PATH, 'utf8'));
+  const oldFolderIds = new Set((existingCatalog.folders || []).map((f) => f.id));
+  const existingNouveauteCategory = (existingCatalog.categories || []).find((c) => c.id === NOUVEAUTE_ID);
+  const previousNouveauteIds = existingNouveauteCategory ? existingNouveauteCategory.folderIDs || [] : [];
 
   const categoryFolders = listDirs(IMAGES_DIR);
   const categories = [];
   const folders = [];
+  const newlyDiscoveredIds = [];
 
   for (const categoryFolder of categoryFolders) {
+    if (categoryFolder === NOUVEAUTE_ID) continue; // catégorie gérée séparément
+
     const categoryPath = path.join(IMAGES_DIR, categoryFolder);
-    const categoryInfo = readInfoJson(categoryPath);
+    const categoryInfoResult = readInfoJson(categoryPath);
     const existingCategory = (existingCatalog.categories || []).find((c) => c.id === categoryFolder);
 
     console.log(`📁 Catégorie : ${categoryFolder}`);
+
+    const translatedCategoryTitle = await resolveTitle(categoryInfoResult);
 
     const subFolders = listDirs(categoryPath);
     const folderIDs = [];
@@ -195,23 +270,44 @@ async function main() {
       folders.push(folderEntry);
       folderIDs.push(folderEntry.id);
       console.log(`   ✅ Dossier : ${folderEntry.id} (${folderEntry.images.length} images)`);
+
+      if (!oldFolderIds.has(folderEntry.id)) {
+        newlyDiscoveredIds.push(folderEntry.id);
+      }
     }
 
     categories.push({
       id: categoryFolder,
-      title: categoryInfo.title || (existingCategory && existingCategory.title) || categoryFolder,
+      title: translatedCategoryTitle || (existingCategory && existingCategory.title) || categoryFolder,
       folderIDs,
     });
   }
 
+  // ---- Catégorie "nouveaute" ----
+  const currentFolderIds = new Set(folders.map((f) => f.id));
+  const carriedOverIds = previousNouveauteIds.filter((id) => currentFolderIds.has(id) && !newlyDiscoveredIds.includes(id));
+  const nouveauteIds = [...newlyDiscoveredIds, ...carriedOverIds].slice(0, NOUVEAUTE_MAX);
+
+  if (newlyDiscoveredIds.length > 0) {
+    console.log(`✨ Nouveaux dossiers détectés : ${newlyDiscoveredIds.join(', ')}`);
+  }
+
+  const nouveauteCategory = {
+    id: NOUVEAUTE_ID,
+    title: { fr: 'Nouveauté', en: 'New' },
+    folderIDs: nouveauteIds,
+  };
+
   const newCatalog = {
     featuredFolderIDs: existingCatalog.featuredFolderIDs || [],
-    categories,
+    categories: [nouveauteCategory, ...categories],
     folders,
   };
 
   fs.writeFileSync(CATALOG_PATH, JSON.stringify(newCatalog, null, 2) + '\n', 'utf8');
-  console.log(`\n✅ catalog.json mis à jour (${categories.length} catégories, ${folders.length} dossiers).`);
+  console.log(
+    `\n✅ catalog.json mis à jour (${newCatalog.categories.length} catégories, ${folders.length} dossiers, ${nouveauteIds.length} en "nouveauté").`
+  );
 }
 
 main().catch((err) => {

@@ -5,31 +5,55 @@
   ],
   "categories": [
     {
+      "id": "nouveaute",
+      "title": {
+        "fr": "Nouveauté",
+        "en": "New"
+      },
+      "folderIDs": []
+    },
+    {
       "id": "animals",
-      "title": "Animals",
+      "title": {
+        "en": "Animals",
+        "fr": "Animaux"
+      },
       "folderIDs": [
         "animals/animals-01",
+        "animals/animals-02",
         "animals/cats-01",
         "animals/dogs-01"
       ]
     },
     {
       "id": "child",
-      "title": "Child",
+      "title": {
+        "en": "Child",
+        "fr": "Enfant"
+      },
       "folderIDs": [
         "child/child-01"
       ]
     },
     {
       "id": "city",
-      "title": "City",
+      "title": {
+        "en": "City",
+        "fr": "Ville"
+      },
       "folderIDs": [
+        "city/london-01",
+        "city/paris-01",
+        "city/rome-01",
         "city/watercolor-01"
       ]
     },
     {
       "id": "food",
-      "title": "Food",
+      "title": {
+        "en": "Food",
+        "fr": "Nourriture"
+      },
       "folderIDs": [
         "food/food-01"
       ]
@@ -38,7 +62,10 @@
   "folders": [
     {
       "id": "animals/animals-01",
-      "title": "animals-01",
+      "title": {
+        "en": "Animals - 1",
+        "fr": "Animaux - 1"
+      },
       "artist": "Freepik",
       "images": [
         {
@@ -74,8 +101,48 @@
       ]
     },
     {
+      "id": "animals/animals-02",
+      "title": {
+        "en": "Animals - 2",
+        "fr": "Animaux - 2"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "animals/animals-02/01"
+        },
+        {
+          "id": "animals/animals-02/02"
+        },
+        {
+          "id": "animals/animals-02/03"
+        },
+        {
+          "id": "animals/animals-02/04"
+        },
+        {
+          "id": "animals/animals-02/05"
+        },
+        {
+          "id": "animals/animals-02/06"
+        },
+        {
+          "id": "animals/animals-02/07"
+        },
+        {
+          "id": "animals/animals-02/08"
+        },
+        {
+          "id": "animals/animals-02/09"
+        }
+      ]
+    },
+    {
       "id": "animals/cats-01",
-      "title": "cats-01",
+      "title": {
+        "en": "Cats - 1",
+        "fr": "Chats - 1"
+      },
       "artist": "Freepik",
       "images": [
         {
@@ -112,7 +179,10 @@
     },
     {
       "id": "animals/dogs-01",
-      "title": "dogs-01",
+      "title": {
+        "en": "Dogs - 1",
+        "fr": "Chiens - 1"
+      },
       "artist": "Freepik",
       "images": [
         {
@@ -149,7 +219,10 @@
     },
     {
       "id": "child/child-01",
-      "title": "child-01",
+      "title": {
+        "en": "Child - 1",
+        "fr": "Enfant - 1"
+      },
       "artist": "Freepik",
       "images": [
         {
@@ -185,8 +258,131 @@
       ]
     },
     {
+      "id": "city/london-01",
+      "title": {
+        "en": "London - 1",
+        "fr": "Londres - 1"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "city/london-01/01"
+        },
+        {
+          "id": "city/london-01/02"
+        },
+        {
+          "id": "city/london-01/03"
+        },
+        {
+          "id": "city/london-01/04"
+        },
+        {
+          "id": "city/london-01/05"
+        },
+        {
+          "id": "city/london-01/06"
+        },
+        {
+          "id": "city/london-01/07"
+        },
+        {
+          "id": "city/london-01/08"
+        },
+        {
+          "id": "city/london-01/09"
+        },
+        {
+          "id": "city/london-01/10"
+        }
+      ]
+    },
+    {
+      "id": "city/paris-01",
+      "title": {
+        "en": "Paris - 1",
+        "fr": "Paris - 1"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "city/paris-01/01"
+        },
+        {
+          "id": "city/paris-01/02"
+        },
+        {
+          "id": "city/paris-01/03"
+        },
+        {
+          "id": "city/paris-01/04"
+        },
+        {
+          "id": "city/paris-01/05"
+        },
+        {
+          "id": "city/paris-01/06"
+        },
+        {
+          "id": "city/paris-01/07"
+        },
+        {
+          "id": "city/paris-01/08"
+        },
+        {
+          "id": "city/paris-01/09"
+        },
+        {
+          "id": "city/paris-01/10"
+        }
+      ]
+    },
+    {
+      "id": "city/rome-01",
+      "title": {
+        "en": "Rome - 1",
+        "fr": "Rome - 1"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "city/rome-01/01"
+        },
+        {
+          "id": "city/rome-01/02"
+        },
+        {
+          "id": "city/rome-01/03"
+        },
+        {
+          "id": "city/rome-01/04"
+        },
+        {
+          "id": "city/rome-01/05"
+        },
+        {
+          "id": "city/rome-01/06"
+        },
+        {
+          "id": "city/rome-01/07"
+        },
+        {
+          "id": "city/rome-01/08"
+        },
+        {
+          "id": "city/rome-01/09"
+        },
+        {
+          "id": "city/rome-01/10"
+        }
+      ]
+    },
+    {
       "id": "city/watercolor-01",
-      "title": "watercolor-01",
+      "title": {
+        "en": "City - 1",
+        "fr": "Ville - 1"
+      },
       "artist": "Freepik",
       "images": [
         {
@@ -223,8 +419,11 @@
     },
     {
       "id": "food/food-01",
-      "title": "food-01",
-      "artist": "Freepik",
+      "title": {
+        "en": "Food - 1",
+        "fr": "Nourriture - 1"
+      },
+      "artist": "Pexels",
       "images": [
         {
           "id": "food/food-01/01"
