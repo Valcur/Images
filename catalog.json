@@ -10,7 +10,18 @@
         "fr": "Nouveauté",
         "en": "New"
       },
-      "folderIDs": []
+      "folderIDs": [
+        "animals/animals-03",
+        "animals/birds-01",
+        "artistic/pixel-01",
+        "flower/flowers-01",
+        "flower/flowers-02",
+        "flower/flowers-03",
+        "food/food-02",
+        "food/fruits-vegetables-01",
+        "landscapes/landscapes-01",
+        "landscapes/landscapes-02"
+      ]
     },
     {
       "id": "animals",
@@ -21,8 +32,17 @@
       "folderIDs": [
         "animals/animals-01",
         "animals/animals-02",
+        "animals/animals-03",
+        "animals/birds-01",
         "animals/cats-01",
         "animals/dogs-01"
+      ]
+    },
+    {
+      "id": "artistic",
+      "title": "artistic",
+      "folderIDs": [
+        "artistic/pixel-01"
       ]
     },
     {
@@ -49,13 +69,46 @@
       ]
     },
     {
+      "id": "flower",
+      "title": "flower",
+      "folderIDs": [
+        "flower/flowers-01",
+        "flower/flowers-02",
+        "flower/flowers-03"
+      ]
+    },
+    {
       "id": "food",
       "title": {
         "en": "Food",
         "fr": "Nourriture"
       },
       "folderIDs": [
-        "food/food-01"
+        "food/food-01",
+        "food/food-02",
+        "food/fruits-vegetables-01"
+      ]
+    },
+    {
+      "id": "landscapes",
+      "title": "landscapes",
+      "folderIDs": [
+        "landscapes/landscapes-01",
+        "landscapes/landscapes-02",
+        "landscapes/mountains-01"
+      ]
+    },
+    {
+      "id": "misc",
+      "title": "misc",
+      "folderIDs": []
+    },
+    {
+      "id": "starter",
+      "title": "starter",
+      "folderIDs": [
+        "starter/starter-01",
+        "starter/starter-2"
       ]
     }
   ],
@@ -138,6 +191,86 @@
       ]
     },
     {
+      "id": "animals/animals-03",
+      "title": {
+        "en": "Animals",
+        "fr": "Animaux"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "animals/animals-03/01"
+        },
+        {
+          "id": "animals/animals-03/02"
+        },
+        {
+          "id": "animals/animals-03/03"
+        },
+        {
+          "id": "animals/animals-03/04"
+        },
+        {
+          "id": "animals/animals-03/05"
+        },
+        {
+          "id": "animals/animals-03/06"
+        },
+        {
+          "id": "animals/animals-03/07"
+        },
+        {
+          "id": "animals/animals-03/08"
+        },
+        {
+          "id": "animals/animals-03/09"
+        },
+        {
+          "id": "animals/animals-03/10"
+        }
+      ]
+    },
+    {
+      "id": "animals/birds-01",
+      "title": {
+        "en": "Birds- 1",
+        "fr": "Oiseaux- 1"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "animals/birds-01/01"
+        },
+        {
+          "id": "animals/birds-01/02"
+        },
+        {
+          "id": "animals/birds-01/03"
+        },
+        {
+          "id": "animals/birds-01/04"
+        },
+        {
+          "id": "animals/birds-01/05"
+        },
+        {
+          "id": "animals/birds-01/06"
+        },
+        {
+          "id": "animals/birds-01/07"
+        },
+        {
+          "id": "animals/birds-01/08"
+        },
+        {
+          "id": "animals/birds-01/09"
+        },
+        {
+          "id": "animals/birds-01/10"
+        }
+      ]
+    },
+    {
       "id": "animals/cats-01",
       "title": {
         "en": "Cats - 1",
@@ -214,6 +347,46 @@
         },
         {
           "id": "animals/dogs-01/10"
+        }
+      ]
+    },
+    {
+      "id": "artistic/pixel-01",
+      "title": {
+        "en": "Pixel - 1",
+        "fr": "Pixel-1"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "artistic/pixel-01/01"
+        },
+        {
+          "id": "artistic/pixel-01/02"
+        },
+        {
+          "id": "artistic/pixel-01/03"
+        },
+        {
+          "id": "artistic/pixel-01/04"
+        },
+        {
+          "id": "artistic/pixel-01/05"
+        },
+        {
+          "id": "artistic/pixel-01/06"
+        },
+        {
+          "id": "artistic/pixel-01/07"
+        },
+        {
+          "id": "artistic/pixel-01/08"
+        },
+        {
+          "id": "artistic/pixel-01/09"
+        },
+        {
+          "id": "artistic/pixel-01/10"
         }
       ]
     },
@@ -418,6 +591,126 @@
       ]
     },
     {
+      "id": "flower/flowers-01",
+      "title": {
+        "en": "Flowers",
+        "fr": "Fleurs"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "flower/flowers-01/01"
+        },
+        {
+          "id": "flower/flowers-01/02"
+        },
+        {
+          "id": "flower/flowers-01/03"
+        },
+        {
+          "id": "flower/flowers-01/04"
+        },
+        {
+          "id": "flower/flowers-01/05"
+        },
+        {
+          "id": "flower/flowers-01/06"
+        },
+        {
+          "id": "flower/flowers-01/07"
+        },
+        {
+          "id": "flower/flowers-01/08"
+        },
+        {
+          "id": "flower/flowers-01/09"
+        },
+        {
+          "id": "flower/flowers-01/10"
+        }
+      ]
+    },
+    {
+      "id": "flower/flowers-02",
+      "title": {
+        "en": "Flowers",
+        "fr": "Fleurs"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "flower/flowers-02/01"
+        },
+        {
+          "id": "flower/flowers-02/02"
+        },
+        {
+          "id": "flower/flowers-02/03"
+        },
+        {
+          "id": "flower/flowers-02/04"
+        },
+        {
+          "id": "flower/flowers-02/05"
+        },
+        {
+          "id": "flower/flowers-02/06"
+        },
+        {
+          "id": "flower/flowers-02/07"
+        },
+        {
+          "id": "flower/flowers-02/08"
+        },
+        {
+          "id": "flower/flowers-02/09"
+        },
+        {
+          "id": "flower/flowers-02/10"
+        }
+      ]
+    },
+    {
+      "id": "flower/flowers-03",
+      "title": {
+        "en": "Flowers",
+        "fr": "Fleurs"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "flower/flowers-03/01"
+        },
+        {
+          "id": "flower/flowers-03/02"
+        },
+        {
+          "id": "flower/flowers-03/03"
+        },
+        {
+          "id": "flower/flowers-03/04"
+        },
+        {
+          "id": "flower/flowers-03/05"
+        },
+        {
+          "id": "flower/flowers-03/06"
+        },
+        {
+          "id": "flower/flowers-03/07"
+        },
+        {
+          "id": "flower/flowers-03/08"
+        },
+        {
+          "id": "flower/flowers-03/09"
+        },
+        {
+          "id": "flower/flowers-03/10"
+        }
+      ]
+    },
+    {
       "id": "food/food-01",
       "title": {
         "en": "Food - 1",
@@ -478,6 +771,268 @@
         },
         {
           "id": "food/food-01/18"
+        }
+      ]
+    },
+    {
+      "id": "food/food-02",
+      "title": {
+        "en": "Food",
+        "fr": "Nourriture"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "food/food-02/01"
+        },
+        {
+          "id": "food/food-02/02"
+        },
+        {
+          "id": "food/food-02/03"
+        },
+        {
+          "id": "food/food-02/04"
+        },
+        {
+          "id": "food/food-02/05"
+        },
+        {
+          "id": "food/food-02/06"
+        },
+        {
+          "id": "food/food-02/07"
+        },
+        {
+          "id": "food/food-02/08"
+        },
+        {
+          "id": "food/food-02/09"
+        },
+        {
+          "id": "food/food-02/10"
+        }
+      ]
+    },
+    {
+      "id": "food/fruits-vegetables-01",
+      "title": {
+        "en": "Fruits and Vegetables",
+        "fr": "Fruits et légumes"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "food/fruits-vegetables-01/01"
+        },
+        {
+          "id": "food/fruits-vegetables-01/02"
+        },
+        {
+          "id": "food/fruits-vegetables-01/03"
+        },
+        {
+          "id": "food/fruits-vegetables-01/04"
+        },
+        {
+          "id": "food/fruits-vegetables-01/05"
+        },
+        {
+          "id": "food/fruits-vegetables-01/06"
+        },
+        {
+          "id": "food/fruits-vegetables-01/07"
+        },
+        {
+          "id": "food/fruits-vegetables-01/08"
+        },
+        {
+          "id": "food/fruits-vegetables-01/09"
+        },
+        {
+          "id": "food/fruits-vegetables-01/10"
+        }
+      ]
+    },
+    {
+      "id": "landscapes/landscapes-01",
+      "title": {
+        "en": "Landscapes",
+        "fr": "Paysages"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "landscapes/landscapes-01/01"
+        },
+        {
+          "id": "landscapes/landscapes-01/02"
+        },
+        {
+          "id": "landscapes/landscapes-01/03"
+        },
+        {
+          "id": "landscapes/landscapes-01/04"
+        },
+        {
+          "id": "landscapes/landscapes-01/05"
+        },
+        {
+          "id": "landscapes/landscapes-01/06"
+        },
+        {
+          "id": "landscapes/landscapes-01/07"
+        },
+        {
+          "id": "landscapes/landscapes-01/08"
+        },
+        {
+          "id": "landscapes/landscapes-01/09"
+        },
+        {
+          "id": "landscapes/landscapes-01/10"
+        }
+      ]
+    },
+    {
+      "id": "landscapes/landscapes-02",
+      "title": {
+        "en": "Landscapes",
+        "fr": "Paysages"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "landscapes/landscapes-02/01"
+        },
+        {
+          "id": "landscapes/landscapes-02/02"
+        },
+        {
+          "id": "landscapes/landscapes-02/03"
+        },
+        {
+          "id": "landscapes/landscapes-02/04"
+        },
+        {
+          "id": "landscapes/landscapes-02/05"
+        },
+        {
+          "id": "landscapes/landscapes-02/06"
+        },
+        {
+          "id": "landscapes/landscapes-02/07"
+        },
+        {
+          "id": "landscapes/landscapes-02/08"
+        }
+      ]
+    },
+    {
+      "id": "landscapes/mountains-01",
+      "title": {
+        "en": "Moutains",
+        "fr": "Montagnes"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "landscapes/mountains-01/01"
+        },
+        {
+          "id": "landscapes/mountains-01/02"
+        },
+        {
+          "id": "landscapes/mountains-01/03"
+        },
+        {
+          "id": "landscapes/mountains-01/04"
+        },
+        {
+          "id": "landscapes/mountains-01/05"
+        },
+        {
+          "id": "landscapes/mountains-01/06"
+        },
+        {
+          "id": "landscapes/mountains-01/07"
+        },
+        {
+          "id": "landscapes/mountains-01/08"
+        },
+        {
+          "id": "landscapes/mountains-01/09"
+        },
+        {
+          "id": "landscapes/mountains-01/10"
+        }
+      ]
+    },
+    {
+      "id": "starter/starter-01",
+      "title": {
+        "en": "Starter",
+        "fr": "Démarreur"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "starter/starter-01/01"
+        },
+        {
+          "id": "starter/starter-01/02"
+        },
+        {
+          "id": "starter/starter-01/03"
+        },
+        {
+          "id": "starter/starter-01/04"
+        },
+        {
+          "id": "starter/starter-01/05"
+        },
+        {
+          "id": "starter/starter-01/06"
+        },
+        {
+          "id": "starter/starter-01/07"
+        },
+        {
+          "id": "starter/starter-01/08"
+        },
+        {
+          "id": "starter/starter-01/09"
+        },
+        {
+          "id": "starter/starter-01/10"
+        }
+      ]
+    },
+    {
+      "id": "starter/starter-2",
+      "title": {
+        "en": "Starter",
+        "fr": "Démarreur"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "starter/starter-2/01"
+        },
+        {
+          "id": "starter/starter-2/02"
+        },
+        {
+          "id": "starter/starter-2/03"
+        },
+        {
+          "id": "starter/starter-2/04"
+        },
+        {
+          "id": "starter/starter-2/05"
+        },
+        {
+          "id": "starter/starter-2/06"
         }
       ]
     }
