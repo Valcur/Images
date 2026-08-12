@@ -11,6 +11,8 @@
         "en": "New"
       },
       "folderIDs": [
+        "child/child-02",
+        "child/child-03",
         "animals/animals-03",
         "animals/birds-01",
         "artistic/pixel-01",
@@ -18,9 +20,7 @@
         "flower/flowers-02",
         "flower/flowers-03",
         "food/food-02",
-        "food/fruits-vegetables-01",
-        "landscapes/landscapes-01",
-        "landscapes/landscapes-02"
+        "food/fruits-vegetables-01"
       ]
     },
     {
@@ -52,7 +52,9 @@
         "fr": "Enfant"
       },
       "folderIDs": [
-        "child/child-01"
+        "child/child-01",
+        "child/child-02",
+        "child/child-03"
       ]
     },
     {
@@ -116,8 +118,8 @@
     {
       "id": "animals/animals-01",
       "title": {
-        "en": "Animals - 1",
-        "fr": "Animaux - 1"
+        "en": "Animals",
+        "fr": "Animaux"
       },
       "artist": "Freepik",
       "images": [
@@ -156,8 +158,8 @@
     {
       "id": "animals/animals-02",
       "title": {
-        "en": "Animals - 2",
-        "fr": "Animaux - 2"
+        "en": "Animals",
+        "fr": "Animaux"
       },
       "artist": "Freepik",
       "images": [
@@ -233,8 +235,8 @@
     {
       "id": "animals/birds-01",
       "title": {
-        "en": "Birds- 1",
-        "fr": "Oiseaux- 1"
+        "en": "Birds",
+        "fr": "Oiseaux"
       },
       "artist": "Freepik",
       "images": [
@@ -273,8 +275,8 @@
     {
       "id": "animals/cats-01",
       "title": {
-        "en": "Cats - 1",
-        "fr": "Chats - 1"
+        "en": "Cats",
+        "fr": "Chats"
       },
       "artist": "Freepik",
       "images": [
@@ -313,8 +315,8 @@
     {
       "id": "animals/dogs-01",
       "title": {
-        "en": "Dogs - 1",
-        "fr": "Chiens - 1"
+        "en": "Dogs",
+        "fr": "Chiens"
       },
       "artist": "Freepik",
       "images": [
@@ -353,8 +355,8 @@
     {
       "id": "artistic/pixel-01",
       "title": {
-        "en": "Pixel - 1",
-        "fr": "Pixel-1"
+        "en": "Pixel",
+        "fr": "Pixel"
       },
       "artist": "Freepik",
       "images": [
@@ -393,8 +395,8 @@
     {
       "id": "child/child-01",
       "title": {
-        "en": "Child - 1",
-        "fr": "Enfant - 1"
+        "en": "Child",
+        "fr": "Enfant"
       },
       "artist": "Freepik",
       "images": [
@@ -431,10 +433,90 @@
       ]
     },
     {
+      "id": "child/child-02",
+      "title": {
+        "en": "Child",
+        "fr": "Enfant"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "child/child-02/01"
+        },
+        {
+          "id": "child/child-02/02"
+        },
+        {
+          "id": "child/child-02/03"
+        },
+        {
+          "id": "child/child-02/04"
+        },
+        {
+          "id": "child/child-02/05"
+        },
+        {
+          "id": "child/child-02/06"
+        },
+        {
+          "id": "child/child-02/07"
+        },
+        {
+          "id": "child/child-02/08"
+        },
+        {
+          "id": "child/child-02/09"
+        },
+        {
+          "id": "child/child-02/10"
+        }
+      ]
+    },
+    {
+      "id": "child/child-03",
+      "title": {
+        "en": "Child",
+        "fr": "Enfant"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "child/child-03/01"
+        },
+        {
+          "id": "child/child-03/02"
+        },
+        {
+          "id": "child/child-03/03"
+        },
+        {
+          "id": "child/child-03/04"
+        },
+        {
+          "id": "child/child-03/05"
+        },
+        {
+          "id": "child/child-03/06"
+        },
+        {
+          "id": "child/child-03/07"
+        },
+        {
+          "id": "child/child-03/08"
+        },
+        {
+          "id": "child/child-03/09"
+        },
+        {
+          "id": "child/child-03/10"
+        }
+      ]
+    },
+    {
       "id": "city/london-01",
       "title": {
-        "en": "London - 1",
-        "fr": "Londres - 1"
+        "en": "London",
+        "fr": "Londres"
       },
       "artist": "Freepik",
       "images": [
@@ -473,8 +555,8 @@
     {
       "id": "city/paris-01",
       "title": {
-        "en": "Paris - 1",
-        "fr": "Paris - 1"
+        "en": "Paris",
+        "fr": "Paris"
       },
       "artist": "Freepik",
       "images": [
@@ -513,8 +595,8 @@
     {
       "id": "city/rome-01",
       "title": {
-        "en": "Rome - 1",
-        "fr": "Rome - 1"
+        "en": "Rome",
+        "fr": "Rome"
       },
       "artist": "Freepik",
       "images": [
@@ -553,8 +635,8 @@
     {
       "id": "city/watercolor-01",
       "title": {
-        "en": "City - 1",
-        "fr": "Ville - 1"
+        "en": "City",
+        "fr": "Ville"
       },
       "artist": "Freepik",
       "images": [
@@ -713,8 +795,8 @@
     {
       "id": "food/food-01",
       "title": {
-        "en": "Food - 1",
-        "fr": "Nourriture - 1"
+        "en": "Food",
+        "fr": "Nourriture"
       },
       "artist": "Pexels",
       "images": [
@@ -1036,5 +1118,373 @@
         }
       ]
     }
-  ]
+  ],
+  "dailyPuzzles": {
+    "01-01": "child/child-02/01",
+    "01-02": "flower/flowers-02/06",
+    "01-03": "starter/starter-01/03",
+    "01-04": "city/watercolor-01/03",
+    "01-05": "city/rome-01/06",
+    "01-06": "animals/cats-01/02",
+    "01-07": "city/london-01/09",
+    "01-08": "artistic/pixel-01/09",
+    "01-09": "food/food-02/03",
+    "01-10": "food/food-01/16",
+    "01-11": "flower/flowers-02/01",
+    "01-12": "flower/flowers-03/05",
+    "01-13": "artistic/pixel-01/03",
+    "01-14": "city/paris-01/02",
+    "01-15": "food/fruits-vegetables-01/02",
+    "01-16": "landscapes/mountains-01/02",
+    "01-17": "animals/animals-01/04",
+    "01-18": "city/rome-01/07",
+    "01-19": "food/food-01/12",
+    "01-20": "city/rome-01/02",
+    "01-21": "landscapes/mountains-01/05",
+    "01-22": "animals/cats-01/09",
+    "01-23": "flower/flowers-01/05",
+    "01-24": "animals/animals-01/09",
+    "01-25": "animals/birds-01/04",
+    "01-26": "city/rome-01/05",
+    "01-27": "food/food-01/18",
+    "01-28": "food/food-02/04",
+    "01-29": "child/child-02/02",
+    "01-30": "animals/dogs-01/01",
+    "01-31": "city/watercolor-01/07",
+    "02-01": "landscapes/landscapes-01/03",
+    "02-02": "city/rome-01/01",
+    "02-03": "animals/animals-02/01",
+    "02-04": "landscapes/mountains-01/03",
+    "02-05": "animals/animals-01/02",
+    "02-06": "landscapes/landscapes-02/05",
+    "02-07": "food/food-02/09",
+    "02-08": "starter/starter-01/06",
+    "02-09": "food/food-01/05",
+    "02-10": "animals/animals-03/10",
+    "02-11": "city/paris-01/04",
+    "02-12": "animals/animals-01/01",
+    "02-13": "flower/flowers-03/01",
+    "02-14": "animals/animals-01/05",
+    "02-15": "animals/cats-01/05",
+    "02-16": "animals/cats-01/07",
+    "02-17": "animals/dogs-01/06",
+    "02-18": "artistic/pixel-01/08",
+    "02-19": "starter/starter-2/05",
+    "02-20": "food/fruits-vegetables-01/03",
+    "02-21": "food/food-01/11",
+    "02-22": "landscapes/landscapes-01/06",
+    "02-23": "city/london-01/06",
+    "02-24": "starter/starter-01/10",
+    "02-25": "animals/birds-01/07",
+    "02-26": "animals/birds-01/03",
+    "02-27": "child/child-01/06",
+    "02-28": "food/food-01/01",
+    "02-29": "animals/cats-01/04",
+    "03-01": "flower/flowers-03/10",
+    "03-02": "city/london-01/03",
+    "03-03": "animals/cats-01/03",
+    "03-04": "city/rome-01/09",
+    "03-05": "landscapes/landscapes-01/10",
+    "03-06": "city/watercolor-01/09",
+    "03-07": "city/paris-01/08",
+    "03-08": "food/food-01/02",
+    "03-09": "city/watercolor-01/01",
+    "03-10": "flower/flowers-01/08",
+    "03-11": "city/london-01/01",
+    "03-12": "landscapes/mountains-01/08",
+    "03-13": "food/food-01/04",
+    "03-14": "child/child-03/10",
+    "03-15": "flower/flowers-01/07",
+    "03-16": "child/child-02/09",
+    "03-17": "city/london-01/07",
+    "03-18": "animals/birds-01/01",
+    "03-19": "child/child-01/09",
+    "03-20": "city/paris-01/05",
+    "03-21": "food/fruits-vegetables-01/08",
+    "03-22": "city/paris-01/07",
+    "03-23": "animals/birds-01/08",
+    "03-24": "flower/flowers-03/07",
+    "03-25": "animals/birds-01/10",
+    "03-26": "food/food-01/10",
+    "03-27": "child/child-02/03",
+    "03-28": "city/watercolor-01/06",
+    "03-29": "city/watercolor-01/08",
+    "03-30": "flower/flowers-02/02",
+    "03-31": "flower/flowers-02/05",
+    "04-01": "landscapes/landscapes-02/07",
+    "04-02": "flower/flowers-01/09",
+    "04-03": "landscapes/landscapes-02/04",
+    "04-04": "starter/starter-2/01",
+    "04-05": "landscapes/mountains-01/01",
+    "04-06": "starter/starter-2/03",
+    "04-07": "city/london-01/08",
+    "04-08": "child/child-02/05",
+    "04-09": "flower/flowers-01/04",
+    "04-10": "child/child-03/01",
+    "04-11": "landscapes/landscapes-01/08",
+    "04-12": "food/fruits-vegetables-01/06",
+    "04-13": "food/food-01/07",
+    "04-14": "artistic/pixel-01/04",
+    "04-15": "starter/starter-2/06",
+    "04-16": "animals/animals-02/09",
+    "04-17": "food/food-02/07",
+    "04-18": "animals/cats-01/08",
+    "04-19": "landscapes/landscapes-02/08",
+    "04-20": "animals/animals-01/07",
+    "04-21": "starter/starter-01/04",
+    "04-22": "animals/dogs-01/04",
+    "04-23": "child/child-02/04",
+    "04-24": "landscapes/landscapes-01/09",
+    "04-25": "child/child-02/08",
+    "04-26": "food/food-01/03",
+    "04-27": "city/london-01/04",
+    "04-28": "child/child-02/07",
+    "04-29": "animals/dogs-01/05",
+    "04-30": "animals/cats-01/01",
+    "05-01": "city/watercolor-01/02",
+    "05-02": "child/child-01/08",
+    "05-03": "food/fruits-vegetables-01/04",
+    "05-04": "food/fruits-vegetables-01/07",
+    "05-05": "animals/animals-02/07",
+    "05-06": "food/fruits-vegetables-01/09",
+    "05-07": "food/fruits-vegetables-01/10",
+    "05-08": "flower/flowers-02/08",
+    "05-09": "flower/flowers-01/03",
+    "05-10": "child/child-03/05",
+    "05-11": "artistic/pixel-01/06",
+    "05-12": "city/paris-01/03",
+    "05-13": "starter/starter-01/09",
+    "05-14": "flower/flowers-01/10",
+    "05-15": "food/food-02/10",
+    "05-16": "food/food-01/06",
+    "05-17": "child/child-01/10",
+    "05-18": "animals/animals-02/06",
+    "05-19": "artistic/pixel-01/05",
+    "05-20": "animals/animals-03/02",
+    "05-21": "flower/flowers-02/10",
+    "05-22": "flower/flowers-01/01",
+    "05-23": "starter/starter-01/07",
+    "05-24": "landscapes/mountains-01/07",
+    "05-25": "animals/cats-01/06",
+    "05-26": "animals/cats-01/10",
+    "05-27": "flower/flowers-03/08",
+    "05-28": "food/food-01/15",
+    "05-29": "animals/dogs-01/02",
+    "05-30": "animals/animals-01/10",
+    "05-31": "city/rome-01/03",
+    "06-01": "flower/flowers-02/07",
+    "06-02": "landscapes/landscapes-02/06",
+    "06-03": "child/child-02/06",
+    "06-04": "landscapes/landscapes-01/01",
+    "06-05": "child/child-01/03",
+    "06-06": "artistic/pixel-01/02",
+    "06-07": "animals/animals-01/08",
+    "06-08": "city/rome-01/10",
+    "06-09": "animals/animals-03/09",
+    "06-10": "child/child-03/06",
+    "06-11": "animals/animals-02/05",
+    "06-12": "landscapes/landscapes-01/07",
+    "06-13": "animals/animals-02/02",
+    "06-14": "city/paris-01/10",
+    "06-15": "animals/animals-01/03",
+    "06-16": "child/child-01/07",
+    "06-17": "food/food-02/01",
+    "06-18": "animals/animals-03/04",
+    "06-19": "artistic/pixel-01/07",
+    "06-20": "landscapes/landscapes-01/04",
+    "06-21": "food/fruits-vegetables-01/05",
+    "06-22": "child/child-02/10",
+    "06-23": "food/food-01/17",
+    "06-24": "food/food-02/08",
+    "06-25": "animals/dogs-01/03",
+    "06-26": "city/rome-01/04",
+    "06-27": "child/child-01/01",
+    "06-28": "starter/starter-01/05",
+    "06-29": "landscapes/landscapes-01/02",
+    "06-30": "animals/birds-01/06",
+    "07-01": "starter/starter-01/08",
+    "07-02": "animals/dogs-01/08",
+    "07-03": "animals/birds-01/05",
+    "07-04": "landscapes/landscapes-02/03",
+    "07-05": "city/london-01/10",
+    "07-06": "animals/animals-03/07",
+    "07-07": "flower/flowers-02/04",
+    "07-08": "animals/animals-03/03",
+    "07-09": "flower/flowers-03/02",
+    "07-10": "starter/starter-2/02",
+    "07-11": "animals/animals-02/08",
+    "07-12": "flower/flowers-03/04",
+    "07-13": "animals/birds-01/02",
+    "07-14": "landscapes/mountains-01/09",
+    "07-15": "child/child-01/05",
+    "07-16": "flower/flowers-01/02",
+    "07-17": "flower/flowers-03/09",
+    "07-18": "animals/animals-03/06",
+    "07-19": "child/child-03/03",
+    "07-20": "child/child-03/09",
+    "07-21": "flower/flowers-03/03",
+    "07-22": "food/food-01/14",
+    "07-23": "child/child-03/08",
+    "07-24": "animals/animals-02/04",
+    "07-25": "landscapes/landscapes-02/01",
+    "07-26": "landscapes/landscapes-01/05",
+    "07-27": "city/rome-01/08",
+    "07-28": "animals/dogs-01/10",
+    "07-29": "animals/dogs-01/07",
+    "07-30": "child/child-03/07",
+    "07-31": "animals/animals-03/05",
+    "08-01": "child/child-01/02",
+    "08-02": "city/paris-01/09",
+    "08-03": "food/food-01/09",
+    "08-04": "flower/flowers-02/03",
+    "08-05": "flower/flowers-01/06",
+    "08-06": "food/food-02/02",
+    "08-07": "starter/starter-01/02",
+    "08-08": "city/paris-01/01",
+    "08-09": "landscapes/mountains-01/06",
+    "08-10": "city/watercolor-01/10",
+    "08-11": "animals/animals-03/08",
+    "08-12": "city/watercolor-01/04",
+    "08-13": "starter/starter-2/04",
+    "08-14": "animals/animals-01/06",
+    "08-15": "city/london-01/05",
+    "08-16": "animals/animals-02/03",
+    "08-17": "child/child-01/04",
+    "08-18": "flower/flowers-02/09",
+    "08-19": "flower/flowers-03/06",
+    "08-20": "landscapes/mountains-01/10",
+    "08-21": "animals/animals-03/01",
+    "08-22": "starter/starter-01/01",
+    "08-23": "city/paris-01/06",
+    "08-24": "food/food-01/13",
+    "08-25": "child/child-03/04",
+    "08-26": "animals/dogs-01/09",
+    "08-27": "city/london-01/02",
+    "08-28": "landscapes/mountains-01/04",
+    "08-29": "artistic/pixel-01/10",
+    "08-30": "food/food-01/08",
+    "08-31": "landscapes/landscapes-02/02",
+    "09-01": "food/fruits-vegetables-01/01",
+    "09-02": "food/food-02/05",
+    "09-03": "city/watercolor-01/05",
+    "09-04": "animals/birds-01/09",
+    "09-05": "artistic/pixel-01/01",
+    "09-06": "child/child-03/02",
+    "09-07": "food/food-02/06",
+    "09-08": "city/watercolor-01/04",
+    "09-09": "starter/starter-01/02",
+    "09-10": "flower/flowers-01/06",
+    "09-11": "city/london-01/06",
+    "09-12": "animals/animals-01/04",
+    "09-13": "artistic/pixel-01/09",
+    "09-14": "flower/flowers-02/06",
+    "09-15": "animals/birds-01/01",
+    "09-16": "animals/birds-01/06",
+    "09-17": "starter/starter-2/05",
+    "09-18": "city/rome-01/05",
+    "09-19": "animals/dogs-01/01",
+    "09-20": "animals/cats-01/07",
+    "09-21": "city/watercolor-01/07",
+    "09-22": "flower/flowers-02/02",
+    "09-23": "city/london-01/10",
+    "09-24": "city/paris-01/02",
+    "09-25": "city/watercolor-01/09",
+    "09-26": "landscapes/landscapes-01/09",
+    "09-27": "artistic/pixel-01/10",
+    "09-28": "flower/flowers-03/06",
+    "09-29": "food/food-02/05",
+    "09-30": "child/child-03/05",
+    "10-01": "flower/flowers-02/03",
+    "10-02": "animals/cats-01/03",
+    "10-03": "animals/cats-01/07",
+    "10-04": "flower/flowers-03/03",
+    "10-05": "landscapes/landscapes-01/05",
+    "10-06": "flower/flowers-03/06",
+    "10-07": "city/london-01/06",
+    "10-08": "city/watercolor-01/05",
+    "10-09": "city/london-01/10",
+    "10-10": "flower/flowers-01/07",
+    "10-11": "food/food-01/13",
+    "10-12": "child/child-02/09",
+    "10-13": "flower/flowers-02/01",
+    "10-14": "animals/animals-01/05",
+    "10-15": "animals/animals-03/01",
+    "10-16": "child/child-02/09",
+    "10-17": "flower/flowers-01/03",
+    "10-18": "animals/dogs-01/07",
+    "10-19": "artistic/pixel-01/02",
+    "10-20": "animals/animals-01/08",
+    "10-21": "city/watercolor-01/07",
+    "10-22": "landscapes/mountains-01/01",
+    "10-23": "animals/dogs-01/05",
+    "10-24": "animals/animals-03/03",
+    "10-25": "food/food-01/09",
+    "10-26": "landscapes/mountains-01/05",
+    "10-27": "animals/animals-01/10",
+    "10-28": "food/fruits-vegetables-01/08",
+    "10-29": "starter/starter-01/08",
+    "10-30": "animals/animals-02/04",
+    "10-31": "animals/birds-01/05",
+    "11-01": "flower/flowers-02/06",
+    "11-02": "child/child-01/07",
+    "11-03": "child/child-03/03",
+    "11-04": "city/london-01/03",
+    "11-05": "flower/flowers-01/08",
+    "11-06": "flower/flowers-01/10",
+    "11-07": "food/fruits-vegetables-01/09",
+    "11-08": "starter/starter-01/07",
+    "11-09": "child/child-01/10",
+    "11-10": "starter/starter-01/04",
+    "11-11": "animals/animals-02/01",
+    "11-12": "animals/animals-02/02",
+    "11-13": "animals/animals-03/09",
+    "11-14": "artistic/pixel-01/05",
+    "11-15": "artistic/pixel-01/07",
+    "11-16": "landscapes/landscapes-02/04",
+    "11-17": "artistic/pixel-01/04",
+    "11-18": "city/paris-01/01",
+    "11-19": "landscapes/mountains-01/01",
+    "11-20": "food/food-01/12",
+    "11-21": "artistic/pixel-01/08",
+    "11-22": "city/watercolor-01/07",
+    "11-23": "animals/animals-01/09",
+    "11-24": "artistic/pixel-01/03",
+    "11-25": "animals/animals-02/07",
+    "11-26": "landscapes/landscapes-02/01",
+    "11-27": "landscapes/landscapes-01/07",
+    "11-28": "landscapes/mountains-01/01",
+    "11-29": "city/paris-01/04",
+    "11-30": "food/food-02/07",
+    "12-01": "child/child-01/07",
+    "12-02": "landscapes/mountains-01/03",
+    "12-03": "landscapes/landscapes-01/03",
+    "12-04": "landscapes/landscapes-02/06",
+    "12-05": "artistic/pixel-01/10",
+    "12-06": "animals/birds-01/08",
+    "12-07": "food/food-02/01",
+    "12-08": "child/child-03/01",
+    "12-09": "food/food-01/06",
+    "12-10": "flower/flowers-01/01",
+    "12-11": "flower/flowers-01/06",
+    "12-12": "starter/starter-01/08",
+    "12-13": "animals/animals-01/08",
+    "12-14": "animals/animals-03/03",
+    "12-15": "food/fruits-vegetables-01/09",
+    "12-16": "landscapes/landscapes-01/10",
+    "12-17": "food/food-01/18",
+    "12-18": "animals/cats-01/04",
+    "12-19": "landscapes/mountains-01/03",
+    "12-20": "animals/animals-02/02",
+    "12-21": "food/food-02/03",
+    "12-22": "animals/animals-03/02",
+    "12-23": "animals/birds-01/06",
+    "12-24": "child/child-03/08",
+    "12-25": "child/child-01/01",
+    "12-26": "artistic/pixel-01/08",
+    "12-27": "flower/flowers-02/02",
+    "12-28": "flower/flowers-01/03",
+    "12-29": "flower/flowers-01/04",
+    "12-30": "child/child-02/03",
+    "12-31": "food/fruits-vegetables-01/08"
+  }
 }

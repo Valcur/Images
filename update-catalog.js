@@ -13,12 +13,20 @@
  *  - si le "title" d'un info.json est une chaine, le traduit automatiquement
  *    en objet { "en": "...", "fr": "..." } et réécrit l'info.json avec cet
  *    objet (si le title est déjà un objet, il est repris tel quel)
+ *  - retire un éventuel suffixe " - <nombre>" en fin de titre (ex: "Set - 3"
+ *    → "Set"), que le titre soit une chaine brute ou déjà traduit
  *  - renumérote les images en 01, 02, 03... (sans toucher à celles déjà
  *    correctement numérotées)
  *  - convertit en .jpg les images qui ne sont pas réellement au format JPEG
  *    (nécessite le module "sharp" : npm install sharp)
  *  - maintient une catégorie "nouveaute" : tout nouveau sous-dossier détecté
  *    est ajouté au début (max 10 au total, les plus anciens sont éjectés)
+ *  - maintient "dailyPuzzles" : 366 entrées (clé "MM-JJ") donnant l'id d'un
+ *    puzzle (image) aléatoire pour ce jour. A chaque exécution, seules les
+ *    dates "à venir" ou dont la dernière occurrence remonte à 4 mois ou plus
+ *    sont régénérées ; les autres (jouées récemment) restent inchangées.
+ *    Un id déjà verrouillé sur une date non régénérée n'est jamais réutilisé
+ *    pour une autre date lors de la même exécution.
  *  - conserve featuredFolderIDs tel quel
  *
  * Nécessite Node.js >= 18 (fetch natif) pour la traduction automatique.
@@ -40,6 +48,8 @@ const IMAGES_DIR = path.join(ROOT_DIR, 'images');
 const TARGET_EXT = '.jpg';
 const NOUVEAUTE_ID = 'nouveaute';
 const NOUVEAUTE_MAX = 10;
+const DAILY_LOCK_MONTHS = 4;
+const LEAP_YEAR_FOR_CALENDAR = 2024; // année de référence pour générer les 366 jours (inclut 29/02)
 
 // ---------- Utilitaires génériques ----------
 
@@ -80,6 +90,12 @@ function pad(num, width) {
   return String(num).padStart(width, '0');
 }
 
+// Retire un suffixe " - <nombre>" en fin de chaine (ex: "Big Cats - 3" -> "Big Cats")
+function stripTrailingNumber(text) {
+  if (typeof text !== 'string') return text;
+  return text.replace(/\s*-\s*\d+\s*$/, '').trim();
+}
+
 // ---------- Traduction automatique ----------
 
 async function detectAndTranslate(text, targetLang) {
@@ -115,21 +131,38 @@ async function translateToObject(text) {
 
 // Retourne le title prêt à mettre dans catalog.json (objet {en, fr} ou null
 // si aucun title n'est défini dans l'info.json). Si le title était une
-// chaine, le traduit et réécrit l'info.json avec l'objet obtenu.
+// chaine, le traduit et réécrit l'info.json avec l'objet obtenu. Dans tous
+// les cas, retire un éventuel suffixe " - <nombre>" en fin de chaque valeur.
 async function resolveTitle(infoResult) {
   const { data, infoPath, exists } = infoResult;
   if (!exists || data.title === undefined || data.title === null) {
     return null;
   }
+
   if (typeof data.title === 'string') {
-    const translated = await translateToObject(data.title);
+    const cleaned = stripTrailingNumber(data.title);
+    const translated = await translateToObject(cleaned);
     const updated = { ...data, title: translated };
     fs.writeFileSync(infoPath, JSON.stringify(updated, null, 2) + '\n', 'utf8');
     console.log(`   🌐 Titre traduit : "${data.title}" → { en: "${translated.en}", fr: "${translated.fr}" }`);
     return translated;
   }
-  // déjà un objet : on le reprend tel quel
-  return data.title;
+
+  // déjà un objet : on retire juste le suffixe numérique éventuel de chaque langue
+  const original = data.title;
+  const cleaned = {};
+  let changed = false;
+  for (const [lang, val] of Object.entries(original)) {
+    const strippedVal = stripTrailingNumber(val);
+    cleaned[lang] = strippedVal;
+    if (strippedVal !== val) changed = true;
+  }
+  if (changed) {
+    const updated = { ...data, title: cleaned };
+    fs.writeFileSync(infoPath, JSON.stringify(updated, null, 2) + '\n', 'utf8');
+    console.log('   ✂️  Suffixe numérique retiré du titre existant');
+  }
+  return cleaned;
 }
 
 // ---------- Conversion / renommage des images ----------
@@ -225,6 +258,101 @@ async function processSubfolder(categoryFolder, subFolderName) {
   };
 }
 
+// ---------- dailyPuzzles ----------
+
+function buildAllDayKeys() {
+  const keys = [];
+  for (let month = 1; month <= 12; month++) {
+    const daysInMonth = new Date(Date.UTC(LEAP_YEAR_FOR_CALENDAR, month, 0)).getUTCDate();
+    for (let day = 1; day <= daysInMonth; day++) {
+      keys.push(`${pad(month, 2)}-${pad(day, 2)}`);
+    }
+  }
+  return keys; // 366 entrées, dont "02-29"
+}
+
+function todayUTCDateOnly() {
+  const now = new Date();
+  return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+}
+
+function buildDateUTC(year, month, day) {
+  return new Date(Date.UTC(year, month - 1, day));
+}
+
+// Dernière occurrence de ce MM-JJ à la date du jour incluse (cette année si
+// déjà passée, sinon l'an dernier).
+function lastOccurrenceOnOrBefore(today, month, day) {
+  const thisYear = buildDateUTC(today.getUTCFullYear(), month, day);
+  if (thisYear.getTime() <= today.getTime()) {
+    return thisYear;
+  }
+  return buildDateUTC(today.getUTCFullYear() - 1, month, day);
+}
+
+// Nombre de mois pleins écoulés entre "from" et "to" (from <= to)
+function monthsBetween(from, to) {
+  let months = (to.getUTCFullYear() - from.getUTCFullYear()) * 12 + (to.getUTCMonth() - from.getUTCMonth());
+  if (to.getUTCDate() < from.getUTCDate()) months--;
+  return months;
+}
+
+function pickRandomExcluding(pool, excludeSet) {
+  let available = pool.filter((id) => !excludeSet.has(id));
+  if (available.length === 0) {
+    available = pool; // pool trop petit pour respecter l'exclusion : on autorise un doublon
+  }
+  return available[Math.floor(Math.random() * available.length)];
+}
+
+function generateDailyPuzzles(existing, allPuzzleIds) {
+  if (allPuzzleIds.length === 0) {
+    console.warn('⚠️  Aucun puzzle dans le catalogue : dailyPuzzles laissé vide.');
+    return {};
+  }
+
+  const today = todayUTCDateOnly();
+  const allKeys = buildAllDayKeys();
+  const result = {};
+  const eligibleKeys = [];
+
+  for (const key of allKeys) {
+    const [mm, dd] = key.split('-').map(Number);
+    const hasValidExisting =
+      existing && Object.prototype.hasOwnProperty.call(existing, key) && allPuzzleIds.includes(existing[key]);
+
+    if (!hasValidExisting) {
+      eligibleKeys.push(key);
+      continue;
+    }
+
+    const last = lastOccurrenceOnOrBefore(today, mm, dd);
+    const age = monthsBetween(last, today);
+
+    if (age >= DAILY_LOCK_MONTHS) {
+      eligibleKeys.push(key);
+    } else {
+      result[key] = existing[key]; // verrouillé : joué récemment (ou à venir sous 4 mois)
+    }
+  }
+
+  const reserved = new Set(Object.values(result));
+  for (const key of eligibleKeys) {
+    const id = pickRandomExcluding(allPuzzleIds, reserved);
+    result[key] = id;
+    reserved.add(id);
+  }
+
+  console.log(`🧩 dailyPuzzles : ${eligibleKeys.length} date(s) régénérée(s), ${366 - eligibleKeys.length} conservée(s).`);
+
+  // Ordonne les clés proprement (MM-JJ croissant)
+  const ordered = {};
+  for (const key of allKeys) {
+    ordered[key] = result[key];
+  }
+  return ordered;
+}
+
 // ---------- Main ----------
 
 async function main() {
@@ -298,10 +426,15 @@ async function main() {
     folderIDs: nouveauteIds,
   };
 
+  // ---- dailyPuzzles ----
+  const allPuzzleIds = folders.flatMap((f) => f.images.map((img) => img.id));
+  const dailyPuzzles = generateDailyPuzzles(existingCatalog.dailyPuzzles, allPuzzleIds);
+
   const newCatalog = {
     featuredFolderIDs: existingCatalog.featuredFolderIDs || [],
     categories: [nouveauteCategory, ...categories],
     folders,
+    dailyPuzzles,
   };
 
   fs.writeFileSync(CATALOG_PATH, JSON.stringify(newCatalog, null, 2) + '\n', 'utf8');
