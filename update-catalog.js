@@ -19,14 +19,14 @@
  *    correctement numérotées)
  *  - convertit en .jpg les images qui ne sont pas réellement au format JPEG
  *    (nécessite le module "sharp" : npm install sharp)
+ *  - génère une miniature "<nom>_thumbnail.jpg" pour chaque image si elle
+ *    n'existe pas déjà (nécessite "sharp")
  *  - maintient une catégorie "nouveaute" : tout nouveau sous-dossier détecté
  *    est ajouté au début (max 10 au total, les plus anciens sont éjectés)
  *  - maintient "dailyPuzzles" : 366 entrées (clé "MM-JJ") donnant l'id d'un
  *    puzzle (image) aléatoire pour ce jour. A chaque exécution, seules les
  *    dates "à venir" ou dont la dernière occurrence remonte à 4 mois ou plus
- *    sont régénérées ; les autres (jouées récemment) restent inchangées.
- *    Un id déjà verrouillé sur une date non régénérée n'est jamais réutilisé
- *    pour une autre date lors de la même exécution.
+ *    (en date locale) sont régénérées ; les autres restent inchangées.
  *  - conserve featuredFolderIDs tel quel
  *
  * Nécessite Node.js >= 18 (fetch natif) pour la traduction automatique.
@@ -50,6 +50,13 @@ const NOUVEAUTE_ID = 'nouveaute';
 const NOUVEAUTE_MAX = 10;
 const DAILY_LOCK_MONTHS = 4;
 const LEAP_YEAR_FOR_CALENDAR = 2024; // année de référence pour générer les 366 jours (inclut 29/02)
+
+// Résolution des miniatures : boîte englobante (ratio conservé), adaptée à
+// une galerie iOS défilant horizontalement (style carrousel App Store).
+// 640px de long côté correspond à des cellules ~200-215pt en @3x, avec une
+// marge confortable pour des cellules plus grandes sur iPad.
+const THUMBNAIL_MAX_DIMENSION = 640;
+const THUMBNAIL_SUFFIX = '_thumbnail';
 
 // ---------- Utilitaires génériques ----------
 
@@ -167,6 +174,10 @@ async function resolveTitle(infoResult) {
 
 // ---------- Conversion / renommage des images ----------
 
+function isThumbnailFile(name) {
+  return new RegExp(`${THUMBNAIL_SUFFIX}\\.[a-zA-Z0-9]+$`).test(name);
+}
+
 async function detectRealExtension(filePath) {
   if (!sharp) return path.extname(filePath).toLowerCase();
   try {
@@ -202,6 +213,30 @@ async function ensureJpg(filePath) {
   return jpgPath;
 }
 
+async function ensureThumbnail(filePath) {
+  const dir = path.dirname(filePath);
+  const base = path.basename(filePath, TARGET_EXT);
+  const thumbPath = path.join(dir, `${base}${THUMBNAIL_SUFFIX}${TARGET_EXT}`);
+
+  if (fs.existsSync(thumbPath)) return; // déjà générée, on ne touche pas
+
+  if (!sharp) {
+    console.warn(`   ⚠️  Miniature non générée pour ${path.basename(filePath)} (module "sharp" manquant).`);
+    return;
+  }
+
+  await sharp(filePath)
+    .resize({
+      width: THUMBNAIL_MAX_DIMENSION,
+      height: THUMBNAIL_MAX_DIMENSION,
+      fit: 'inside',
+      withoutEnlargement: true,
+    })
+    .jpeg({ quality: 80 })
+    .toFile(thumbPath);
+  console.log(`   🖼️  Miniature générée : ${path.basename(thumbPath)}`);
+}
+
 // ---------- Traitement d'un dossier (folder) ----------
 
 async function processSubfolder(categoryFolder, subFolderName) {
@@ -213,7 +248,7 @@ async function processSubfolder(categoryFolder, subFolderName) {
     .readdirSync(subFolderPath, { withFileTypes: true })
     .filter((d) => d.isFile())
     .map((d) => d.name)
-    .filter((name) => name !== 'info.json' && !name.startsWith('.'))
+    .filter((name) => name !== 'info.json' && !name.startsWith('.') && !isThumbnailFile(name))
     .sort(naturalSort);
 
   // 1) S'assurer que chaque image est un vrai JPEG
@@ -243,6 +278,11 @@ async function processSubfolder(categoryFolder, subFolderName) {
     }
   });
 
+  // 3) Miniatures
+  for (const targetName of targets) {
+    await ensureThumbnail(path.join(subFolderPath, targetName));
+  }
+
   const folderId = `${categoryFolder}/${subFolderName}`;
   const images = targets.map((name) => ({
     id: `${folderId}/${path.basename(name, TARGET_EXT)}`,
@@ -259,11 +299,16 @@ async function processSubfolder(categoryFolder, subFolderName) {
 }
 
 // ---------- dailyPuzzles ----------
+// Toutes les comparaisons de dates se font en arithmétique pure sur
+// {année, mois, jour} en HEURE LOCALE (celle de la machine qui lance le
+// script), sans jamais passer par un objet Date pour la comparaison — ça
+// évite tout décalage UTC/local qui pourrait faire passer "aujourd'hui"
+// pour une date future et la régénérer par erreur.
 
 function buildAllDayKeys() {
   const keys = [];
   for (let month = 1; month <= 12; month++) {
-    const daysInMonth = new Date(Date.UTC(LEAP_YEAR_FOR_CALENDAR, month, 0)).getUTCDate();
+    const daysInMonth = new Date(LEAP_YEAR_FOR_CALENDAR, month, 0).getDate();
     for (let day = 1; day <= daysInMonth; day++) {
       keys.push(`${pad(month, 2)}-${pad(day, 2)}`);
     }
@@ -271,29 +316,29 @@ function buildAllDayKeys() {
   return keys; // 366 entrées, dont "02-29"
 }
 
-function todayUTCDateOnly() {
+function getTodayLocal() {
   const now = new Date();
-  return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+  return { year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate() };
 }
 
-function buildDateUTC(year, month, day) {
-  return new Date(Date.UTC(year, month - 1, day));
+function dateValue(d) {
+  return d.year * 10000 + d.month * 100 + d.day;
 }
 
 // Dernière occurrence de ce MM-JJ à la date du jour incluse (cette année si
-// déjà passée, sinon l'an dernier).
+// déjà passée ou égale à aujourd'hui, sinon l'an dernier).
 function lastOccurrenceOnOrBefore(today, month, day) {
-  const thisYear = buildDateUTC(today.getUTCFullYear(), month, day);
-  if (thisYear.getTime() <= today.getTime()) {
+  const thisYear = { year: today.year, month, day };
+  if (dateValue(thisYear) <= dateValue(today)) {
     return thisYear;
   }
-  return buildDateUTC(today.getUTCFullYear() - 1, month, day);
+  return { year: today.year - 1, month, day };
 }
 
 // Nombre de mois pleins écoulés entre "from" et "to" (from <= to)
 function monthsBetween(from, to) {
-  let months = (to.getUTCFullYear() - from.getUTCFullYear()) * 12 + (to.getUTCMonth() - from.getUTCMonth());
-  if (to.getUTCDate() < from.getUTCDate()) months--;
+  let months = (to.year - from.year) * 12 + (to.month - from.month);
+  if (to.day < from.day) months--;
   return months;
 }
 
@@ -311,7 +356,7 @@ function generateDailyPuzzles(existing, allPuzzleIds) {
     return {};
   }
 
-  const today = todayUTCDateOnly();
+  const today = getTodayLocal();
   const allKeys = buildAllDayKeys();
   const result = {};
   const eligibleKeys = [];
@@ -332,7 +377,7 @@ function generateDailyPuzzles(existing, allPuzzleIds) {
     if (age >= DAILY_LOCK_MONTHS) {
       eligibleKeys.push(key);
     } else {
-      result[key] = existing[key]; // verrouillé : joué récemment (ou à venir sous 4 mois)
+      result[key] = existing[key]; // verrouillé : joué récemment (ou aujourd'hui même)
     }
   }
 
@@ -365,7 +410,7 @@ async function main() {
     process.exit(1);
   }
   if (!sharp) {
-    console.warn('⚠️  Le module "sharp" n\'est pas installé : la vérification/conversion de format sera ignorée.');
+    console.warn('⚠️  Le module "sharp" n\'est pas installé : conversion/miniatures seront ignorées.');
     console.warn('   Installe-le avec : npm install sharp');
   }
 
