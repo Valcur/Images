@@ -206,11 +206,20 @@ async function ensureJpg(filePath) {
   if (realExt === TARGET_EXT || !sharp) {
     return filePath;
   }
-  const jpgPath = filePath.slice(0, -path.extname(filePath).length) + TARGET_EXT;
-  await sharp(filePath).jpeg({ quality: 90 }).toFile(jpgPath);
+
+  const dir = path.dirname(filePath);
+  const base = path.basename(filePath, path.extname(filePath));
+  const finalPath = path.join(dir, base + TARGET_EXT);
+  // Passe toujours par un fichier temporaire distinct : le chemin final peut
+  // être identique au chemin d'entrée (ex: un .jpg qui est en réalité un PNG),
+  // et sharp refuse d'écrire dans le fichier qu'il est en train de lire.
+  const tempPath = path.join(dir, `__convert_${process.pid}_${Date.now()}${TARGET_EXT}`);
+
+  await sharp(filePath).jpeg({ quality: 90 }).toFile(tempPath);
   fs.unlinkSync(filePath);
-  console.log(`   🔄 Converti en JPG : ${path.basename(filePath)} → ${path.basename(jpgPath)}`);
-  return jpgPath;
+  fs.renameSync(tempPath, finalPath);
+  console.log(`   🔄 Converti en JPG : ${path.basename(filePath)} → ${path.basename(finalPath)}`);
+  return finalPath;
 }
 
 async function ensureThumbnail(filePath) {
