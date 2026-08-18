@@ -480,12 +480,15 @@ async function main() {
     folderIDs: nouveauteIds,
   };
 
+  // Les 5 dossiers les plus récents de "nouveaute" (déjà en tête de liste) sont mis en avant
+  const featuredFolderIDs = nouveauteIds.slice(0, 5);
+
   // ---- dailyPuzzles ----
   const allPuzzleIds = folders.flatMap((f) => f.images.map((img) => img.id));
   const dailyPuzzles = generateDailyPuzzles(existingCatalog.dailyPuzzles, allPuzzleIds);
 
   const newCatalog = {
-    featuredFolderIDs: existingCatalog.featuredFolderIDs || [],
+    featuredFolderIDs,
     categories: [nouveauteCategory, ...categories],
     folders,
     dailyPuzzles,
