@@ -299,12 +299,18 @@ async function processSubfolder(categoryFolder, subFolderName) {
 
   const translatedTitle = await resolveTitle(infoResult);
 
-  return {
+  const folderEntry = {
     id: folderId,
     title: translatedTitle || subFolderName,
     artist: info.artist || 'Freepik',
     images,
   };
+
+  if (info.inAppId !== undefined && info.inAppId !== null && info.inAppId !== '') {
+    folderEntry.inAppId = info.inAppId;
+  }
+
+  return folderEntry;
 }
 
 // ---------- dailyPuzzles ----------
