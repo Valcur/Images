@@ -8,28 +8,36 @@
  * Ce script :
  *  - parcourt images/<categorie>/<dossier>/
  *  - reconstruit "categories" et "folders" de catalog.json
- *  - lit les info.json (titre/artiste) de chaque catégorie et dossier,
- *    de façon tolérante aux petites erreurs de syntaxe (virgules finales...)
+ *  - lit les info.json (titre/artiste/inAppId) de chaque catégorie et
+ *    dossier, de façon tolérante aux petites erreurs de syntaxe
  *  - si le "title" d'un info.json est une chaine, le traduit automatiquement
  *    en objet { "en": "...", "fr": "..." } et réécrit l'info.json avec cet
  *    objet (si le title est déjà un objet, il est repris tel quel)
- *  - retire un éventuel suffixe " - <nombre>" en fin de titre (ex: "Set - 3"
- *    → "Set"), que le titre soit une chaine brute ou déjà traduit
+ *  - retire un éventuel suffixe " - <nombre>" en fin de titre avant de le
+ *    sauvegarder dans info.json
+ *  - si plusieurs dossiers ont exactement le même titre final, ajoute
+ *    " - 1", " - 2"... (recalculé à chaque run, jamais persisté)
+ *  - ignore les dossiers de moins de 10 images (ni dans "folders", ni dans
+ *    les folderIDs des catégories)
  *  - renumérote les images en 01, 02, 03... (sans toucher à celles déjà
  *    correctement numérotées)
  *  - convertit en .jpg les images qui ne sont pas réellement au format JPEG
- *    (nécessite le module "sharp" : npm install sharp)
- *  - génère une miniature "<nom>_thumbnail.jpg" pour chaque image si elle
- *    n'existe pas déjà (nécessite "sharp")
- *  - maintient une catégorie "nouveaute" : tout nouveau sous-dossier détecté
- *    est ajouté au début (max 10 au total, les plus anciens sont éjectés)
- *  - maintient "dailyPuzzles" : 366 entrées (clé "MM-JJ") donnant l'id d'un
- *    puzzle (image) aléatoire pour ce jour. A chaque exécution, seules les
- *    dates "à venir" ou dont la dernière occurrence remonte à 4 mois ou plus
- *    (en date locale) sont régénérées ; les autres restent inchangées.
- *  - conserve featuredFolderIDs tel quel
+ *  - génère une miniature "<nom>_thumbnail.jpg" par image si absente
+ *  - copie le champ "inAppId" d'un info.json sur le folder, et ajoute ce
+ *    folder à une catégorie "premium" placée à la fin de "categories"
+ *  - lit/maintient "folderOrder" (tout début du fichier) : ordre manuel des
+ *    CATEGORIES (au lieu de l'ordre alphabétique). Les catégories déjà
+ *    listées gardent leur position, les nouvelles sont ajoutées à la fin.
+ *    "premium" n'y figure jamais : elle est toujours en dernière position.
+ *  - maintient "featuredFolderIDs" : les 5 derniers dossiers nouvellement
+ *    apparus, les plus récents en tête
+ *  - maintient "dailyPuzzles" : 366 entrées ("MM-JJ" -> id d'image),
+ *    régénérées seulement si la date est à venir ou si sa dernière
+ *    occurrence remonte à 4 mois ou plus (calcul en date locale)
  *
  * Nécessite Node.js >= 18 (fetch natif) pour la traduction automatique.
+ * Nécessite le module "sharp" (npm install sharp) pour la conversion et les
+ * miniatures ; sans lui ces étapes sont simplement ignorées avec un avertissement.
  */
 
 const fs = require('fs');
@@ -46,15 +54,13 @@ const ROOT_DIR = __dirname;
 const CATALOG_PATH = path.join(ROOT_DIR, 'catalog.json');
 const IMAGES_DIR = path.join(ROOT_DIR, 'images');
 const TARGET_EXT = '.jpg';
-const NOUVEAUTE_ID = 'nouveaute';
-const NOUVEAUTE_MAX = 10;
-const DAILY_LOCK_MONTHS = 4;
-const LEAP_YEAR_FOR_CALENDAR = 2024; // année de référence pour générer les 366 jours (inclut 29/02)
 
-// Résolution des miniatures : boîte englobante (ratio conservé), adaptée à
-// une galerie iOS défilant horizontalement (style carrousel App Store).
-// 640px de long côté correspond à des cellules ~200-215pt en @3x, avec une
-// marge confortable pour des cellules plus grandes sur iPad.
+const MIN_IMAGES_PER_FOLDER = 10;
+const PREMIUM_CATEGORY_ID = 'premium';
+const DAILY_LOCK_MONTHS = 4;
+const LEAP_YEAR_FOR_CALENDAR = 2024; // référence pour générer les 366 jours (inclut 29/02)
+const FEATURED_MAX = 5;
+
 const THUMBNAIL_MAX_DIMENSION = 640;
 const THUMBNAIL_SUFFIX = '_thumbnail';
 
@@ -72,8 +78,6 @@ function listDirs(p) {
     .sort(naturalSort);
 }
 
-// Tolère les virgules finales (trailing commas), fréquentes dans les
-// info.json édités à la main.
 function parseLenientJSON(text) {
   const cleaned = text.replace(/,(\s*[\]}])/g, '$1');
   return JSON.parse(cleaned);
@@ -97,7 +101,6 @@ function pad(num, width) {
   return String(num).padStart(width, '0');
 }
 
-// Retire un suffixe " - <nombre>" en fin de chaine (ex: "Big Cats - 3" -> "Big Cats")
 function stripTrailingNumber(text) {
   if (typeof text !== 'string') return text;
   return text.replace(/\s*-\s*\d+\s*$/, '').trim();
@@ -136,10 +139,6 @@ async function translateToObject(text) {
   }
 }
 
-// Retourne le title prêt à mettre dans catalog.json (objet {en, fr} ou null
-// si aucun title n'est défini dans l'info.json). Si le title était une
-// chaine, le traduit et réécrit l'info.json avec l'objet obtenu. Dans tous
-// les cas, retire un éventuel suffixe " - <nombre>" en fin de chaque valeur.
 async function resolveTitle(infoResult) {
   const { data, infoPath, exists } = infoResult;
   if (!exists || data.title === undefined || data.title === null) {
@@ -155,7 +154,6 @@ async function resolveTitle(infoResult) {
     return translated;
   }
 
-  // déjà un objet : on retire juste le suffixe numérique éventuel de chaque langue
   const original = data.title;
   const cleaned = {};
   let changed = false;
@@ -170,6 +168,33 @@ async function resolveTitle(infoResult) {
     console.log('   ✂️  Suffixe numérique retiré du titre existant');
   }
   return cleaned;
+}
+
+// Si plusieurs folders partagent exactement le même titre, ajoute " - 1",
+// " - 2"... Recalculé entièrement à chaque exécution, jamais écrit dans les
+// info.json : un titre redevenu unique perd son suffixe automatiquement.
+function applyDuplicateTitleSuffixes(folders) {
+  const keyOf = (title) => (typeof title === 'string' ? `s:${title}` : `o:${title.en}||${title.fr}`);
+  const groups = new Map();
+
+  for (const folder of folders) {
+    const key = keyOf(folder.title);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(folder);
+  }
+
+  for (const group of groups.values()) {
+    if (group.length <= 1) continue;
+    group.forEach((folder, idx) => {
+      const suffix = ` - ${idx + 1}`;
+      if (typeof folder.title === 'string') {
+        folder.title = folder.title + suffix;
+      } else {
+        folder.title = { ...folder.title, en: folder.title.en + suffix, fr: folder.title.fr + suffix };
+      }
+    });
+    console.log(`   🔢 ${group.length} dossiers avec le même titre → numérotés (1 à ${group.length})`);
+  }
 }
 
 // ---------- Conversion / renommage des images ----------
@@ -210,9 +235,6 @@ async function ensureJpg(filePath) {
   const dir = path.dirname(filePath);
   const base = path.basename(filePath, path.extname(filePath));
   const finalPath = path.join(dir, base + TARGET_EXT);
-  // Passe toujours par un fichier temporaire distinct : le chemin final peut
-  // être identique au chemin d'entrée (ex: un .jpg qui est en réalité un PNG),
-  // et sharp refuse d'écrire dans le fichier qu'il est en train de lire.
   const tempPath = path.join(dir, `__convert_${process.pid}_${Date.now()}${TARGET_EXT}`);
 
   await sharp(filePath).jpeg({ quality: 90 }).toFile(tempPath);
@@ -227,7 +249,7 @@ async function ensureThumbnail(filePath) {
   const base = path.basename(filePath, TARGET_EXT);
   const thumbPath = path.join(dir, `${base}${THUMBNAIL_SUFFIX}${TARGET_EXT}`);
 
-  if (fs.existsSync(thumbPath)) return; // déjà générée, on ne touche pas
+  if (fs.existsSync(thumbPath)) return;
 
   if (!sharp) {
     console.warn(`   ⚠️  Miniature non générée pour ${path.basename(filePath)} (module "sharp" manquant).`);
@@ -260,7 +282,6 @@ async function processSubfolder(categoryFolder, subFolderName) {
     .filter((name) => name !== 'info.json' && !name.startsWith('.') && !isThumbnailFile(name))
     .sort(naturalSort);
 
-  // 1) S'assurer que chaque image est un vrai JPEG
   const afterConversion = [];
   for (const name of files) {
     const filePath = path.join(subFolderPath, name);
@@ -269,7 +290,6 @@ async function processSubfolder(categoryFolder, subFolderName) {
   }
   files = afterConversion.sort(naturalSort);
 
-  // 2) Renuméroter 01, 02, ... dans l'ordre courant
   const total = files.length;
   const width = Math.max(2, String(total).length);
   const targets = files.map((_, idx) => `${pad(idx + 1, width)}${TARGET_EXT}`);
@@ -287,7 +307,6 @@ async function processSubfolder(categoryFolder, subFolderName) {
     }
   });
 
-  // 3) Miniatures
   for (const targetName of targets) {
     await ensureThumbnail(path.join(subFolderPath, targetName));
   }
@@ -314,11 +333,10 @@ async function processSubfolder(categoryFolder, subFolderName) {
 }
 
 // ---------- dailyPuzzles ----------
-// Toutes les comparaisons de dates se font en arithmétique pure sur
-// {année, mois, jour} en HEURE LOCALE (celle de la machine qui lance le
-// script), sans jamais passer par un objet Date pour la comparaison — ça
-// évite tout décalage UTC/local qui pourrait faire passer "aujourd'hui"
-// pour une date future et la régénérer par erreur.
+// Comparaisons de dates en arithmétique pure sur {année, mois, jour} en
+// heure locale, sans jamais passer par un objet Date pour comparer — évite
+// tout décalage UTC/local qui ferait passer "aujourd'hui" pour une date
+// future et la régénérer à tort.
 
 function buildAllDayKeys() {
   const keys = [];
@@ -340,8 +358,6 @@ function dateValue(d) {
   return d.year * 10000 + d.month * 100 + d.day;
 }
 
-// Dernière occurrence de ce MM-JJ à la date du jour incluse (cette année si
-// déjà passée ou égale à aujourd'hui, sinon l'an dernier).
 function lastOccurrenceOnOrBefore(today, month, day) {
   const thisYear = { year: today.year, month, day };
   if (dateValue(thisYear) <= dateValue(today)) {
@@ -350,7 +366,6 @@ function lastOccurrenceOnOrBefore(today, month, day) {
   return { year: today.year - 1, month, day };
 }
 
-// Nombre de mois pleins écoulés entre "from" et "to" (from <= to)
 function monthsBetween(from, to) {
   let months = (to.year - from.year) * 12 + (to.month - from.month);
   if (to.day < from.day) months--;
@@ -360,7 +375,7 @@ function monthsBetween(from, to) {
 function pickRandomExcluding(pool, excludeSet) {
   let available = pool.filter((id) => !excludeSet.has(id));
   if (available.length === 0) {
-    available = pool; // pool trop petit pour respecter l'exclusion : on autorise un doublon
+    available = pool;
   }
   return available[Math.floor(Math.random() * available.length)];
 }
@@ -392,7 +407,7 @@ function generateDailyPuzzles(existing, allPuzzleIds) {
     if (age >= DAILY_LOCK_MONTHS) {
       eligibleKeys.push(key);
     } else {
-      result[key] = existing[key]; // verrouillé : joué récemment (ou aujourd'hui même)
+      result[key] = existing[key];
     }
   }
 
@@ -405,41 +420,11 @@ function generateDailyPuzzles(existing, allPuzzleIds) {
 
   console.log(`🧩 dailyPuzzles : ${eligibleKeys.length} date(s) régénérée(s), ${366 - eligibleKeys.length} conservée(s).`);
 
-  // Ordonne les clés proprement (MM-JJ croissant)
   const ordered = {};
   for (const key of allKeys) {
     ordered[key] = result[key];
   }
   return ordered;
-}
-
-// Si plusieurs folders partagent exactement le même titre (même objet
-// {en, fr} ou même chaine), on ajoute " - 1", " - 2", ... à la fin de
-// chaque langue pour les distinguer. Recalculé entièrement à chaque
-// exécution à partir des titres "propres" (jamais écrit dans les info.json)
-// : si un titre redevient unique, le suffixe disparaît tout seul.
-function applyDuplicateTitleSuffixes(folders) {
-  const keyOf = (title) => (typeof title === 'string' ? `s:${title}` : `o:${title.en}||${title.fr}`);
-  const groups = new Map();
-
-  for (const folder of folders) {
-    const key = keyOf(folder.title);
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(folder);
-  }
-
-  for (const group of groups.values()) {
-    if (group.length <= 1) continue;
-    group.forEach((folder, idx) => {
-      const suffix = ` - ${idx + 1}`;
-      if (typeof folder.title === 'string') {
-        folder.title = folder.title + suffix;
-      } else {
-        folder.title = { ...folder.title, en: folder.title.en + suffix, fr: folder.title.fr + suffix };
-      }
-    });
-    console.log(`   🔢 ${group.length} dossiers avec le même titre → numérotés (1 à ${group.length})`);
-  }
 }
 
 // ---------- Main ----------
@@ -460,17 +445,23 @@ async function main() {
 
   const existingCatalog = parseLenientJSON(fs.readFileSync(CATALOG_PATH, 'utf8'));
   const oldFolderIds = new Set((existingCatalog.folders || []).map((f) => f.id));
-  const existingNouveauteCategory = (existingCatalog.categories || []).find((c) => c.id === NOUVEAUTE_ID);
-  const previousNouveauteIds = existingNouveauteCategory ? existingNouveauteCategory.folderIDs || [] : [];
 
-  const categoryFolders = listDirs(IMAGES_DIR);
+  // ---- Ordre des catégories (folderOrder) ----
+  const diskCategoryIds = listDirs(IMAGES_DIR).filter((id) => id !== PREMIUM_CATEGORY_ID);
+  const existingOrder = Array.isArray(existingCatalog.folderOrder) ? existingCatalog.folderOrder : [];
+  const prunedOrder = existingOrder.filter((id) => diskCategoryIds.includes(id));
+  const newCategoryIds = diskCategoryIds.filter((id) => !prunedOrder.includes(id)).sort(naturalSort);
+  const folderOrder = [...prunedOrder, ...newCategoryIds];
+
+  if (newCategoryIds.length > 0) {
+    console.log(`📌 Nouvelles catégories ajoutées à la fin de folderOrder : ${newCategoryIds.join(', ')}`);
+  }
+
   const categories = [];
   const folders = [];
   const newlyDiscoveredIds = [];
 
-  for (const categoryFolder of categoryFolders) {
-    if (categoryFolder === NOUVEAUTE_ID) continue; // catégorie gérée séparément
-
+  for (const categoryFolder of folderOrder) {
     const categoryPath = path.join(IMAGES_DIR, categoryFolder);
     const categoryInfoResult = readInfoJson(categoryPath);
     const existingCategory = (existingCatalog.categories || []).find((c) => c.id === categoryFolder);
@@ -484,6 +475,12 @@ async function main() {
 
     for (const subFolderName of subFolders) {
       const folderEntry = await processSubfolder(categoryFolder, subFolderName);
+
+      if (folderEntry.images.length < MIN_IMAGES_PER_FOLDER) {
+        console.log(`   ⏭️  Ignoré (${folderEntry.images.length} < ${MIN_IMAGES_PER_FOLDER} images) : ${folderEntry.id}`);
+        continue;
+      }
+
       folders.push(folderEntry);
       folderIDs.push(folderEntry.id);
       console.log(`   ✅ Dossier : ${folderEntry.id} (${folderEntry.images.length} images)`);
@@ -503,38 +500,38 @@ async function main() {
   // ---- Désambiguïsation des titres identiques ----
   applyDuplicateTitleSuffixes(folders);
 
-  // ---- Catégorie "nouveaute" ----
-  const currentFolderIds = new Set(folders.map((f) => f.id));
-  const carriedOverIds = previousNouveauteIds.filter((id) => currentFolderIds.has(id) && !newlyDiscoveredIds.includes(id));
-  const nouveauteIds = [...newlyDiscoveredIds, ...carriedOverIds].slice(0, NOUVEAUTE_MAX);
-
-  if (newlyDiscoveredIds.length > 0) {
-    console.log(`✨ Nouveaux dossiers détectés : ${newlyDiscoveredIds.join(', ')}`);
+  // ---- Catégorie "premium" (toujours en dernier, absente de folderOrder) ----
+  const premiumFolderIds = folders.filter((f) => f.inAppId).map((f) => f.id);
+  if (premiumFolderIds.length > 0) {
+    categories.push({
+      id: PREMIUM_CATEGORY_ID,
+      title: { fr: 'Premium', en: 'Premium' },
+      folderIDs: premiumFolderIds,
+    });
+    console.log(`💎 Catégorie premium : ${premiumFolderIds.length} dossier(s)`);
   }
 
-  const nouveauteCategory = {
-    id: NOUVEAUTE_ID,
-    title: { fr: 'Nouveauté', en: 'New' },
-    folderIDs: nouveauteIds,
-  };
-
-  // Les 5 dossiers les plus récents de "nouveaute" (déjà en tête de liste) sont mis en avant
-  const featuredFolderIDs = nouveauteIds.slice(0, 5);
+  // ---- featuredFolderIDs : 5 derniers dossiers apparus, les plus récents en tête ----
+  const currentFolderIds = new Set(folders.map((f) => f.id));
+  const existingFeatured = Array.isArray(existingCatalog.featuredFolderIDs) ? existingCatalog.featuredFolderIDs : [];
+  const carriedFeatured = existingFeatured.filter((id) => currentFolderIds.has(id) && !newlyDiscoveredIds.includes(id));
+  const featuredFolderIDs = [...newlyDiscoveredIds, ...carriedFeatured].slice(0, FEATURED_MAX);
 
   // ---- dailyPuzzles ----
   const allPuzzleIds = folders.flatMap((f) => f.images.map((img) => img.id));
   const dailyPuzzles = generateDailyPuzzles(existingCatalog.dailyPuzzles, allPuzzleIds);
 
   const newCatalog = {
+    folderOrder,
     featuredFolderIDs,
-    categories: [nouveauteCategory, ...categories],
+    categories,
     folders,
     dailyPuzzles,
   };
 
   fs.writeFileSync(CATALOG_PATH, JSON.stringify(newCatalog, null, 2) + '\n', 'utf8');
   console.log(
-    `\n✅ catalog.json mis à jour (${newCatalog.categories.length} catégories, ${folders.length} dossiers, ${nouveauteIds.length} en "nouveauté").`
+    `\n✅ catalog.json mis à jour (${categories.length} catégories, ${folders.length} dossiers, ${featuredFolderIDs.length} en vedette).`
   );
 }
 

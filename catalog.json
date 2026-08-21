@@ -1,41 +1,18 @@
 {
+  "folderOrder": [
+    "art",
+    "landscapes",
+    "city",
+    "food",
+    "flower",
+    "animals",
+    "misc"
+  ],
   "featuredFolderIDs": [
     "art/art-9",
-    "art/art-10",
-    "art/art-10 copie",
-    "art/art-10 copie 2",
-    "art/portraits-1"
+    "art/art-10"
   ],
   "categories": [
-    {
-      "id": "nouveaute",
-      "title": {
-        "fr": "Nouveauté",
-        "en": "New"
-      },
-      "folderIDs": [
-        "art/art-9",
-        "art/art-10",
-        "art/art-10 copie",
-        "art/art-10 copie 2",
-        "art/portraits-1",
-        "art/art-02",
-        "art/art-03",
-        "art/art-04",
-        "art/art-05",
-        "art/art-06"
-      ]
-    },
-    {
-      "id": "animals",
-      "title": {
-        "en": "Animals",
-        "fr": "Animaux"
-      },
-      "folderIDs": [
-        "animals/animals-01"
-      ]
-    },
     {
       "id": "art",
       "title": {
@@ -53,48 +30,7 @@
         "art/art-08",
         "art/art-9",
         "art/art-10",
-        "art/art-10 copie",
-        "art/art-10 copie 2",
-        "art/portraits-1",
         "art/vangogh-01"
-      ]
-    },
-    {
-      "id": "city",
-      "title": {
-        "en": "City",
-        "fr": "Ville"
-      },
-      "folderIDs": [
-        "city/city-01",
-        "city/city-02",
-        "city/streetart-01"
-      ]
-    },
-    {
-      "id": "flower",
-      "title": {
-        "en": "Flowers",
-        "fr": "Fleurs"
-      },
-      "folderIDs": [
-        "flower/flower-01",
-        "flower/flower-02"
-      ]
-    },
-    {
-      "id": "food",
-      "title": {
-        "en": "Food",
-        "fr": "Nourriture"
-      },
-      "folderIDs": [
-        "food/food-01",
-        "food/food-02",
-        "food/food-03",
-        "food/food-04",
-        "food/food-05",
-        "food/vegetables-01"
       ]
     },
     {
@@ -114,6 +50,53 @@
       ]
     },
     {
+      "id": "city",
+      "title": {
+        "en": "City",
+        "fr": "Ville"
+      },
+      "folderIDs": [
+        "city/city-01",
+        "city/city-02"
+      ]
+    },
+    {
+      "id": "food",
+      "title": {
+        "en": "Food",
+        "fr": "Nourriture"
+      },
+      "folderIDs": [
+        "food/food-01",
+        "food/food-02",
+        "food/food-03",
+        "food/food-04",
+        "food/food-05",
+        "food/vegetables-01"
+      ]
+    },
+    {
+      "id": "flower",
+      "title": {
+        "en": "Flowers",
+        "fr": "Fleurs"
+      },
+      "folderIDs": [
+        "flower/flower-01",
+        "flower/flower-02"
+      ]
+    },
+    {
+      "id": "animals",
+      "title": {
+        "en": "Animals",
+        "fr": "Animaux"
+      },
+      "folderIDs": [
+        "animals/animals-01"
+      ]
+    },
+    {
       "id": "misc",
       "title": {
         "en": "Misc",
@@ -125,49 +108,19 @@
         "misc/misc-03",
         "misc/misc-04"
       ]
+    },
+    {
+      "id": "premium",
+      "title": {
+        "fr": "Premium",
+        "en": "Premium"
+      },
+      "folderIDs": [
+        "art/vangogh-01"
+      ]
     }
   ],
   "folders": [
-    {
-      "id": "animals/animals-01",
-      "title": {
-        "en": "Animals",
-        "fr": "Animaux"
-      },
-      "artist": "Freepik",
-      "images": [
-        {
-          "id": "animals/animals-01/01"
-        },
-        {
-          "id": "animals/animals-01/02"
-        },
-        {
-          "id": "animals/animals-01/03"
-        },
-        {
-          "id": "animals/animals-01/04"
-        },
-        {
-          "id": "animals/animals-01/05"
-        },
-        {
-          "id": "animals/animals-01/06"
-        },
-        {
-          "id": "animals/animals-01/07"
-        },
-        {
-          "id": "animals/animals-01/08"
-        },
-        {
-          "id": "animals/animals-01/09"
-        },
-        {
-          "id": "animals/animals-01/10"
-        }
-      ]
-    },
     {
       "id": "art/art-01",
       "title": {
@@ -569,33 +522,6 @@
       ]
     },
     {
-      "id": "art/art-10 copie",
-      "title": {
-        "en": "Art - 11",
-        "fr": "Art - 11"
-      },
-      "artist": "Freepik",
-      "images": []
-    },
-    {
-      "id": "art/art-10 copie 2",
-      "title": {
-        "en": "Art - 12",
-        "fr": "Art - 12"
-      },
-      "artist": "Freepik",
-      "images": []
-    },
-    {
-      "id": "art/portraits-1",
-      "title": {
-        "en": "Portraits",
-        "fr": "Portraits"
-      },
-      "artist": "Freepik",
-      "images": []
-    },
-    {
       "id": "art/vangogh-01",
       "title": {
         "en": "Van Gogh",
@@ -653,446 +579,6 @@
         }
       ],
       "inAppId": "impressionists01"
-    },
-    {
-      "id": "city/city-01",
-      "title": {
-        "en": "City - 1",
-        "fr": "Ville - 1"
-      },
-      "artist": "Freepik",
-      "images": [
-        {
-          "id": "city/city-01/01"
-        },
-        {
-          "id": "city/city-01/02"
-        },
-        {
-          "id": "city/city-01/03"
-        },
-        {
-          "id": "city/city-01/04"
-        },
-        {
-          "id": "city/city-01/05"
-        },
-        {
-          "id": "city/city-01/06"
-        },
-        {
-          "id": "city/city-01/07"
-        },
-        {
-          "id": "city/city-01/08"
-        },
-        {
-          "id": "city/city-01/09"
-        },
-        {
-          "id": "city/city-01/10"
-        },
-        {
-          "id": "city/city-01/11"
-        },
-        {
-          "id": "city/city-01/12"
-        }
-      ]
-    },
-    {
-      "id": "city/city-02",
-      "title": {
-        "en": "City - 2",
-        "fr": "Ville - 2"
-      },
-      "artist": "Freepik",
-      "images": [
-        {
-          "id": "city/city-02/01"
-        },
-        {
-          "id": "city/city-02/02"
-        },
-        {
-          "id": "city/city-02/03"
-        },
-        {
-          "id": "city/city-02/04"
-        },
-        {
-          "id": "city/city-02/05"
-        },
-        {
-          "id": "city/city-02/06"
-        },
-        {
-          "id": "city/city-02/07"
-        },
-        {
-          "id": "city/city-02/08"
-        },
-        {
-          "id": "city/city-02/09"
-        },
-        {
-          "id": "city/city-02/10"
-        },
-        {
-          "id": "city/city-02/11"
-        }
-      ]
-    },
-    {
-      "id": "city/streetart-01",
-      "title": {
-        "en": "Street Art",
-        "fr": "Art de rue"
-      },
-      "artist": "Freepik",
-      "images": [
-        {
-          "id": "city/streetart-01/01"
-        },
-        {
-          "id": "city/streetart-01/02"
-        },
-        {
-          "id": "city/streetart-01/03"
-        }
-      ]
-    },
-    {
-      "id": "flower/flower-01",
-      "title": {
-        "en": "Flowers - 1",
-        "fr": "Fleurs - 1"
-      },
-      "artist": "Freepik",
-      "images": [
-        {
-          "id": "flower/flower-01/01"
-        },
-        {
-          "id": "flower/flower-01/02"
-        },
-        {
-          "id": "flower/flower-01/03"
-        },
-        {
-          "id": "flower/flower-01/04"
-        },
-        {
-          "id": "flower/flower-01/05"
-        },
-        {
-          "id": "flower/flower-01/06"
-        },
-        {
-          "id": "flower/flower-01/07"
-        },
-        {
-          "id": "flower/flower-01/08"
-        },
-        {
-          "id": "flower/flower-01/09"
-        },
-        {
-          "id": "flower/flower-01/10"
-        },
-        {
-          "id": "flower/flower-01/11"
-        },
-        {
-          "id": "flower/flower-01/12"
-        }
-      ]
-    },
-    {
-      "id": "flower/flower-02",
-      "title": {
-        "en": "Flowers - 2",
-        "fr": "Fleurs - 2"
-      },
-      "artist": "Freepik",
-      "images": [
-        {
-          "id": "flower/flower-02/01"
-        },
-        {
-          "id": "flower/flower-02/02"
-        },
-        {
-          "id": "flower/flower-02/03"
-        },
-        {
-          "id": "flower/flower-02/04"
-        },
-        {
-          "id": "flower/flower-02/05"
-        },
-        {
-          "id": "flower/flower-02/06"
-        },
-        {
-          "id": "flower/flower-02/07"
-        },
-        {
-          "id": "flower/flower-02/08"
-        },
-        {
-          "id": "flower/flower-02/09"
-        },
-        {
-          "id": "flower/flower-02/10"
-        }
-      ]
-    },
-    {
-      "id": "food/food-01",
-      "title": {
-        "en": "Food - 1",
-        "fr": "Nourriture - 1"
-      },
-      "artist": "Freepik",
-      "images": [
-        {
-          "id": "food/food-01/01"
-        },
-        {
-          "id": "food/food-01/02"
-        },
-        {
-          "id": "food/food-01/03"
-        },
-        {
-          "id": "food/food-01/04"
-        },
-        {
-          "id": "food/food-01/05"
-        },
-        {
-          "id": "food/food-01/06"
-        },
-        {
-          "id": "food/food-01/07"
-        },
-        {
-          "id": "food/food-01/08"
-        },
-        {
-          "id": "food/food-01/09"
-        },
-        {
-          "id": "food/food-01/10"
-        },
-        {
-          "id": "food/food-01/11"
-        },
-        {
-          "id": "food/food-01/12"
-        }
-      ]
-    },
-    {
-      "id": "food/food-02",
-      "title": {
-        "en": "Food - 2",
-        "fr": "Nourriture - 2"
-      },
-      "artist": "Freepik",
-      "images": [
-        {
-          "id": "food/food-02/01"
-        },
-        {
-          "id": "food/food-02/02"
-        },
-        {
-          "id": "food/food-02/03"
-        },
-        {
-          "id": "food/food-02/04"
-        },
-        {
-          "id": "food/food-02/05"
-        },
-        {
-          "id": "food/food-02/06"
-        },
-        {
-          "id": "food/food-02/07"
-        },
-        {
-          "id": "food/food-02/08"
-        },
-        {
-          "id": "food/food-02/09"
-        },
-        {
-          "id": "food/food-02/10"
-        }
-      ]
-    },
-    {
-      "id": "food/food-03",
-      "title": {
-        "en": "Food - 3",
-        "fr": "Nourriture - 3"
-      },
-      "artist": "Freepik",
-      "images": [
-        {
-          "id": "food/food-03/01"
-        },
-        {
-          "id": "food/food-03/02"
-        },
-        {
-          "id": "food/food-03/03"
-        },
-        {
-          "id": "food/food-03/04"
-        },
-        {
-          "id": "food/food-03/05"
-        },
-        {
-          "id": "food/food-03/06"
-        },
-        {
-          "id": "food/food-03/07"
-        },
-        {
-          "id": "food/food-03/08"
-        },
-        {
-          "id": "food/food-03/09"
-        },
-        {
-          "id": "food/food-03/10"
-        }
-      ]
-    },
-    {
-      "id": "food/food-04",
-      "title": {
-        "en": "Food - 4",
-        "fr": "Nourriture - 4"
-      },
-      "artist": "Freepik",
-      "images": [
-        {
-          "id": "food/food-04/01"
-        },
-        {
-          "id": "food/food-04/02"
-        },
-        {
-          "id": "food/food-04/03"
-        },
-        {
-          "id": "food/food-04/04"
-        },
-        {
-          "id": "food/food-04/05"
-        },
-        {
-          "id": "food/food-04/06"
-        },
-        {
-          "id": "food/food-04/07"
-        },
-        {
-          "id": "food/food-04/08"
-        },
-        {
-          "id": "food/food-04/09"
-        },
-        {
-          "id": "food/food-04/10"
-        }
-      ]
-    },
-    {
-      "id": "food/food-05",
-      "title": {
-        "en": "Food - 5",
-        "fr": "Nourriture - 5"
-      },
-      "artist": "Freepik",
-      "images": [
-        {
-          "id": "food/food-05/01"
-        },
-        {
-          "id": "food/food-05/02"
-        },
-        {
-          "id": "food/food-05/03"
-        },
-        {
-          "id": "food/food-05/04"
-        },
-        {
-          "id": "food/food-05/05"
-        },
-        {
-          "id": "food/food-05/06"
-        },
-        {
-          "id": "food/food-05/07"
-        },
-        {
-          "id": "food/food-05/08"
-        },
-        {
-          "id": "food/food-05/09"
-        },
-        {
-          "id": "food/food-05/10"
-        }
-      ]
-    },
-    {
-      "id": "food/vegetables-01",
-      "title": {
-        "en": "Fruits & Vegetables",
-        "fr": "Fruits et légumes"
-      },
-      "artist": "Freepik",
-      "images": [
-        {
-          "id": "food/vegetables-01/01"
-        },
-        {
-          "id": "food/vegetables-01/02"
-        },
-        {
-          "id": "food/vegetables-01/03"
-        },
-        {
-          "id": "food/vegetables-01/04"
-        },
-        {
-          "id": "food/vegetables-01/05"
-        },
-        {
-          "id": "food/vegetables-01/06"
-        },
-        {
-          "id": "food/vegetables-01/07"
-        },
-        {
-          "id": "food/vegetables-01/08"
-        },
-        {
-          "id": "food/vegetables-01/09"
-        },
-        {
-          "id": "food/vegetables-01/10"
-        }
-      ]
     },
     {
       "id": "landscapes/landscapes-01",
@@ -1375,6 +861,467 @@
       ]
     },
     {
+      "id": "city/city-01",
+      "title": {
+        "en": "City - 1",
+        "fr": "Ville - 1"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "city/city-01/01"
+        },
+        {
+          "id": "city/city-01/02"
+        },
+        {
+          "id": "city/city-01/03"
+        },
+        {
+          "id": "city/city-01/04"
+        },
+        {
+          "id": "city/city-01/05"
+        },
+        {
+          "id": "city/city-01/06"
+        },
+        {
+          "id": "city/city-01/07"
+        },
+        {
+          "id": "city/city-01/08"
+        },
+        {
+          "id": "city/city-01/09"
+        },
+        {
+          "id": "city/city-01/10"
+        },
+        {
+          "id": "city/city-01/11"
+        },
+        {
+          "id": "city/city-01/12"
+        }
+      ]
+    },
+    {
+      "id": "city/city-02",
+      "title": {
+        "en": "City - 2",
+        "fr": "Ville - 2"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "city/city-02/01"
+        },
+        {
+          "id": "city/city-02/02"
+        },
+        {
+          "id": "city/city-02/03"
+        },
+        {
+          "id": "city/city-02/04"
+        },
+        {
+          "id": "city/city-02/05"
+        },
+        {
+          "id": "city/city-02/06"
+        },
+        {
+          "id": "city/city-02/07"
+        },
+        {
+          "id": "city/city-02/08"
+        },
+        {
+          "id": "city/city-02/09"
+        },
+        {
+          "id": "city/city-02/10"
+        },
+        {
+          "id": "city/city-02/11"
+        }
+      ]
+    },
+    {
+      "id": "food/food-01",
+      "title": {
+        "en": "Food - 1",
+        "fr": "Nourriture - 1"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "food/food-01/01"
+        },
+        {
+          "id": "food/food-01/02"
+        },
+        {
+          "id": "food/food-01/03"
+        },
+        {
+          "id": "food/food-01/04"
+        },
+        {
+          "id": "food/food-01/05"
+        },
+        {
+          "id": "food/food-01/06"
+        },
+        {
+          "id": "food/food-01/07"
+        },
+        {
+          "id": "food/food-01/08"
+        },
+        {
+          "id": "food/food-01/09"
+        },
+        {
+          "id": "food/food-01/10"
+        },
+        {
+          "id": "food/food-01/11"
+        },
+        {
+          "id": "food/food-01/12"
+        }
+      ]
+    },
+    {
+      "id": "food/food-02",
+      "title": {
+        "en": "Food - 2",
+        "fr": "Nourriture - 2"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "food/food-02/01"
+        },
+        {
+          "id": "food/food-02/02"
+        },
+        {
+          "id": "food/food-02/03"
+        },
+        {
+          "id": "food/food-02/04"
+        },
+        {
+          "id": "food/food-02/05"
+        },
+        {
+          "id": "food/food-02/06"
+        },
+        {
+          "id": "food/food-02/07"
+        },
+        {
+          "id": "food/food-02/08"
+        },
+        {
+          "id": "food/food-02/09"
+        },
+        {
+          "id": "food/food-02/10"
+        }
+      ]
+    },
+    {
+      "id": "food/food-03",
+      "title": {
+        "en": "Food - 3",
+        "fr": "Nourriture - 3"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "food/food-03/01"
+        },
+        {
+          "id": "food/food-03/02"
+        },
+        {
+          "id": "food/food-03/03"
+        },
+        {
+          "id": "food/food-03/04"
+        },
+        {
+          "id": "food/food-03/05"
+        },
+        {
+          "id": "food/food-03/06"
+        },
+        {
+          "id": "food/food-03/07"
+        },
+        {
+          "id": "food/food-03/08"
+        },
+        {
+          "id": "food/food-03/09"
+        },
+        {
+          "id": "food/food-03/10"
+        }
+      ]
+    },
+    {
+      "id": "food/food-04",
+      "title": {
+        "en": "Food - 4",
+        "fr": "Nourriture - 4"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "food/food-04/01"
+        },
+        {
+          "id": "food/food-04/02"
+        },
+        {
+          "id": "food/food-04/03"
+        },
+        {
+          "id": "food/food-04/04"
+        },
+        {
+          "id": "food/food-04/05"
+        },
+        {
+          "id": "food/food-04/06"
+        },
+        {
+          "id": "food/food-04/07"
+        },
+        {
+          "id": "food/food-04/08"
+        },
+        {
+          "id": "food/food-04/09"
+        },
+        {
+          "id": "food/food-04/10"
+        }
+      ]
+    },
+    {
+      "id": "food/food-05",
+      "title": {
+        "en": "Food - 5",
+        "fr": "Nourriture - 5"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "food/food-05/01"
+        },
+        {
+          "id": "food/food-05/02"
+        },
+        {
+          "id": "food/food-05/03"
+        },
+        {
+          "id": "food/food-05/04"
+        },
+        {
+          "id": "food/food-05/05"
+        },
+        {
+          "id": "food/food-05/06"
+        },
+        {
+          "id": "food/food-05/07"
+        },
+        {
+          "id": "food/food-05/08"
+        },
+        {
+          "id": "food/food-05/09"
+        },
+        {
+          "id": "food/food-05/10"
+        }
+      ]
+    },
+    {
+      "id": "food/vegetables-01",
+      "title": {
+        "en": "Fruits & Vegetables",
+        "fr": "Fruits et légumes"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "food/vegetables-01/01"
+        },
+        {
+          "id": "food/vegetables-01/02"
+        },
+        {
+          "id": "food/vegetables-01/03"
+        },
+        {
+          "id": "food/vegetables-01/04"
+        },
+        {
+          "id": "food/vegetables-01/05"
+        },
+        {
+          "id": "food/vegetables-01/06"
+        },
+        {
+          "id": "food/vegetables-01/07"
+        },
+        {
+          "id": "food/vegetables-01/08"
+        },
+        {
+          "id": "food/vegetables-01/09"
+        },
+        {
+          "id": "food/vegetables-01/10"
+        }
+      ]
+    },
+    {
+      "id": "flower/flower-01",
+      "title": {
+        "en": "Flowers - 1",
+        "fr": "Fleurs - 1"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "flower/flower-01/01"
+        },
+        {
+          "id": "flower/flower-01/02"
+        },
+        {
+          "id": "flower/flower-01/03"
+        },
+        {
+          "id": "flower/flower-01/04"
+        },
+        {
+          "id": "flower/flower-01/05"
+        },
+        {
+          "id": "flower/flower-01/06"
+        },
+        {
+          "id": "flower/flower-01/07"
+        },
+        {
+          "id": "flower/flower-01/08"
+        },
+        {
+          "id": "flower/flower-01/09"
+        },
+        {
+          "id": "flower/flower-01/10"
+        },
+        {
+          "id": "flower/flower-01/11"
+        },
+        {
+          "id": "flower/flower-01/12"
+        }
+      ]
+    },
+    {
+      "id": "flower/flower-02",
+      "title": {
+        "en": "Flowers - 2",
+        "fr": "Fleurs - 2"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "flower/flower-02/01"
+        },
+        {
+          "id": "flower/flower-02/02"
+        },
+        {
+          "id": "flower/flower-02/03"
+        },
+        {
+          "id": "flower/flower-02/04"
+        },
+        {
+          "id": "flower/flower-02/05"
+        },
+        {
+          "id": "flower/flower-02/06"
+        },
+        {
+          "id": "flower/flower-02/07"
+        },
+        {
+          "id": "flower/flower-02/08"
+        },
+        {
+          "id": "flower/flower-02/09"
+        },
+        {
+          "id": "flower/flower-02/10"
+        }
+      ]
+    },
+    {
+      "id": "animals/animals-01",
+      "title": {
+        "en": "Animals",
+        "fr": "Animaux"
+      },
+      "artist": "Freepik",
+      "images": [
+        {
+          "id": "animals/animals-01/01"
+        },
+        {
+          "id": "animals/animals-01/02"
+        },
+        {
+          "id": "animals/animals-01/03"
+        },
+        {
+          "id": "animals/animals-01/04"
+        },
+        {
+          "id": "animals/animals-01/05"
+        },
+        {
+          "id": "animals/animals-01/06"
+        },
+        {
+          "id": "animals/animals-01/07"
+        },
+        {
+          "id": "animals/animals-01/08"
+        },
+        {
+          "id": "animals/animals-01/09"
+        },
+        {
+          "id": "animals/animals-01/10"
+        }
+      ]
+    },
+    {
       "id": "misc/misc-01",
       "title": {
         "en": "Misc - 1",
@@ -1536,118 +1483,118 @@
     }
   ],
   "dailyPuzzles": {
-    "01-01": "art/art-08/09",
-    "01-02": "art/art-06/07",
-    "01-03": "misc/misc-04/07",
-    "01-04": "landscapes/landscapes-04/01",
-    "01-05": "landscapes/landscapes-06/06",
-    "01-06": "art/vangogh-01/10",
-    "01-07": "art/art-06/10",
-    "01-08": "art/art-05/06",
-    "01-09": "art/art-01/05",
-    "01-10": "art/art-03/03",
-    "01-11": "art/art-05/02",
-    "01-12": "misc/misc-04/06",
-    "01-13": "flower/flower-01/06",
-    "01-14": "art/art-08/05",
-    "01-15": "art/art-07/01",
-    "01-16": "art/art-04/01",
-    "01-17": "landscapes/landscapes-05/04",
-    "01-18": "food/vegetables-01/02",
-    "01-19": "art/art-06/02",
-    "01-20": "landscapes/landscapes-05/03",
-    "01-21": "landscapes/landscapes-01/08",
-    "01-22": "art/art-05/08",
-    "01-23": "flower/flower-02/01",
-    "01-24": "art/art-10/03",
-    "01-25": "food/food-02/05",
-    "01-26": "art/vangogh-01/05",
-    "01-27": "art/art-9/02",
-    "01-28": "art/art-08/04",
-    "01-29": "flower/flower-01/07",
-    "01-30": "art/art-03/02",
-    "01-31": "art/art-06/01",
-    "02-01": "flower/flower-02/06",
-    "02-02": "art/art-07/10",
-    "02-03": "misc/misc-02/05",
-    "02-04": "food/food-05/02",
-    "02-05": "landscapes/landscapes-03/03",
-    "02-06": "art/art-9/06",
-    "02-07": "landscapes/landscapes-06/09",
-    "02-08": "art/art-9/09",
-    "02-09": "art/art-10/02",
-    "02-10": "food/vegetables-01/01",
-    "02-11": "art/art-07/02",
-    "02-12": "art/art-05/10",
-    "02-13": "misc/misc-03/08",
-    "02-14": "city/city-02/03",
-    "02-15": "landscapes/landscapes-05/07",
-    "02-16": "food/food-05/07",
-    "02-17": "art/vangogh-01/01",
-    "02-18": "art/art-07/09",
-    "02-19": "misc/misc-02/06",
-    "02-20": "art/art-02/04",
-    "02-21": "art/vangogh-01/11",
-    "02-22": "art/art-06/03",
-    "02-23": "art/art-9/05",
-    "02-24": "art/vangogh-01/12",
-    "02-25": "city/city-02/07",
-    "02-26": "city/city-01/02",
-    "02-27": "landscapes/landscapes-06/05",
-    "02-28": "city/city-02/06",
-    "02-29": "art/art-02/08",
-    "03-01": "art/art-04/04",
-    "03-02": "art/art-04/07",
-    "03-03": "landscapes/landscapes-05/10",
-    "03-04": "landscapes/landscapes-01/10",
-    "03-05": "art/vangogh-01/08",
-    "03-06": "animals/animals-01/04",
-    "03-07": "art/art-03/07",
-    "03-08": "art/art-06/06",
-    "03-09": "misc/misc-03/10",
-    "03-10": "art/art-9/08",
-    "03-11": "landscapes/landscapes-07/04",
-    "03-12": "art/art-04/08",
-    "03-13": "art/vangogh-01/04",
-    "03-14": "art/art-07/07",
-    "03-15": "art/art-02/09",
-    "03-16": "art/art-9/04",
-    "03-17": "food/food-04/01",
-    "03-18": "art/vangogh-01/07",
-    "03-19": "landscapes/landscapes-07/07",
-    "03-20": "art/art-03/10",
-    "03-21": "art/art-02/10",
-    "03-22": "art/art-10/05",
-    "03-23": "art/art-01/02",
-    "03-24": "art/art-10/04",
-    "03-25": "art/art-01/10",
-    "03-26": "misc/misc-01/02",
-    "03-27": "food/vegetables-01/03",
-    "03-28": "art/vangogh-01/02",
-    "03-29": "food/food-03/06",
-    "03-30": "landscapes/landscapes-03/04",
-    "03-31": "art/art-02/03",
-    "04-01": "food/food-02/09",
-    "04-02": "food/food-02/04",
-    "04-03": "food/food-05/08",
-    "04-04": "misc/misc-03/04",
-    "04-05": "landscapes/landscapes-04/05",
-    "04-06": "art/art-03/08",
-    "04-07": "landscapes/landscapes-04/04",
-    "04-08": "landscapes/landscapes-01/03",
-    "04-09": "art/art-02/01",
-    "04-10": "art/vangogh-01/15",
-    "04-11": "food/food-05/09",
-    "04-12": "art/art-08/06",
+    "01-01": "food/food-05/09",
+    "01-02": "art/art-08/05",
+    "01-03": "art/art-08/01",
+    "01-04": "landscapes/landscapes-03/04",
+    "01-05": "art/vangogh-01/03",
+    "01-06": "misc/misc-02/06",
+    "01-07": "art/art-04/02",
+    "01-08": "art/art-01/02",
+    "01-09": "food/food-04/01",
+    "01-10": "food/vegetables-01/04",
+    "01-11": "art/art-04/04",
+    "01-12": "landscapes/landscapes-01/10",
+    "01-13": "art/art-01/06",
+    "01-14": "art/art-9/10",
+    "01-15": "art/art-05/04",
+    "01-16": "food/food-01/08",
+    "01-17": "art/art-05/09",
+    "01-18": "landscapes/landscapes-05/07",
+    "01-19": "food/food-04/06",
+    "01-20": "art/art-05/06",
+    "01-21": "city/city-02/10",
+    "01-22": "art/vangogh-01/01",
+    "01-23": "flower/flower-01/03",
+    "01-24": "misc/misc-03/04",
+    "01-25": "art/art-07/07",
+    "01-26": "art/art-07/02",
+    "01-27": "food/food-01/11",
+    "01-28": "landscapes/landscapes-05/03",
+    "01-29": "misc/misc-04/10",
+    "01-30": "art/art-10/03",
+    "01-31": "art/art-03/09",
+    "02-01": "art/art-02/05",
+    "02-02": "art/art-07/08",
+    "02-03": "art/art-01/05",
+    "02-04": "misc/misc-03/02",
+    "02-05": "misc/misc-02/05",
+    "02-06": "art/art-08/03",
+    "02-07": "art/art-01/10",
+    "02-08": "misc/misc-04/07",
+    "02-09": "food/food-02/05",
+    "02-10": "misc/misc-04/02",
+    "02-11": "flower/flower-02/06",
+    "02-12": "flower/flower-02/04",
+    "02-13": "food/food-02/07",
+    "02-14": "misc/misc-03/09",
+    "02-15": "food/food-03/04",
+    "02-16": "food/vegetables-01/06",
+    "02-17": "misc/misc-04/06",
+    "02-18": "food/food-02/09",
+    "02-19": "city/city-01/02",
+    "02-20": "art/art-03/02",
+    "02-21": "landscapes/landscapes-05/04",
+    "02-22": "landscapes/landscapes-06/09",
+    "02-23": "art/art-07/10",
+    "02-24": "landscapes/landscapes-04/04",
+    "02-25": "art/art-06/01",
+    "02-26": "art/art-10/02",
+    "02-27": "art/art-05/02",
+    "02-28": "art/art-03/05",
+    "02-29": "food/food-05/02",
+    "03-01": "city/city-02/04",
+    "03-02": "art/vangogh-01/12",
+    "03-03": "art/art-07/01",
+    "03-04": "art/art-06/08",
+    "03-05": "art/art-9/05",
+    "03-06": "art/art-07/03",
+    "03-07": "landscapes/landscapes-06/06",
+    "03-08": "art/art-03/03",
+    "03-09": "food/food-01/04",
+    "03-10": "landscapes/landscapes-05/02",
+    "03-11": "art/art-02/02",
+    "03-12": "city/city-02/06",
+    "03-13": "art/art-05/01",
+    "03-14": "art/art-01/04",
+    "03-15": "misc/misc-02/02",
+    "03-16": "art/art-05/08",
+    "03-17": "art/art-08/10",
+    "03-18": "food/food-04/03",
+    "03-19": "art/art-06/05",
+    "03-20": "city/city-02/01",
+    "03-21": "flower/flower-01/04",
+    "03-22": "landscapes/landscapes-04/01",
+    "03-23": "art/art-9/06",
+    "03-24": "flower/flower-01/08",
+    "03-25": "city/city-02/07",
+    "03-26": "art/art-08/07",
+    "03-27": "art/art-08/04",
+    "03-28": "art/art-9/01",
+    "03-29": "landscapes/landscapes-03/01",
+    "03-30": "misc/misc-01/03",
+    "03-31": "art/vangogh-01/11",
+    "04-01": "landscapes/landscapes-06/07",
+    "04-02": "art/art-01/08",
+    "04-03": "art/vangogh-01/08",
+    "04-04": "art/art-9/07",
+    "04-05": "misc/misc-01/02",
+    "04-06": "animals/animals-01/07",
+    "04-07": "flower/flower-01/07",
+    "04-08": "art/art-04/07",
+    "04-09": "landscapes/landscapes-07/07",
+    "04-10": "landscapes/landscapes-05/05",
+    "04-11": "art/art-02/06",
+    "04-12": "art/art-07/06",
     "04-13": "food/food-04/09",
-    "04-14": "art/art-06/05",
-    "04-15": "art/art-07/03",
-    "04-16": "landscapes/landscapes-07/09",
-    "04-17": "art/art-02/02",
-    "04-18": "art/art-07/05",
-    "04-19": "art/art-10/10",
-    "04-20": "food/food-02/07",
-    "04-21": "misc/misc-01/09",
+    "04-14": "art/art-9/04",
+    "04-15": "food/food-05/08",
+    "04-16": "art/art-05/10",
+    "04-17": "art/art-06/10",
+    "04-18": "landscapes/landscapes-03/10",
+    "04-19": "city/city-01/08",
+    "04-20": "art/art-07/05",
+    "04-21": "food/food-02/04",
     "04-22": "landscapes/landscapes-06/10",
     "04-23": "food/vegetables-01/09",
     "04-24": "landscapes/landscapes-01/09",
@@ -1770,137 +1717,137 @@
     "08-19": "city/city-01/01",
     "08-20": "landscapes/landscapes-04/06",
     "08-21": "flower/flower-01/05",
-    "08-22": "food/food-01/10",
-    "08-23": "art/art-01/08",
-    "08-24": "landscapes/landscapes-07/02",
-    "08-25": "food/food-03/10",
-    "08-26": "food/food-03/04",
-    "08-27": "food/food-04/03",
-    "08-28": "flower/flower-01/08",
-    "08-29": "art/art-01/06",
-    "08-30": "city/city-02/01",
-    "08-31": "art/art-04/05",
-    "09-01": "landscapes/landscapes-03/10",
-    "09-02": "art/art-06/04",
-    "09-03": "art/art-04/09",
-    "09-04": "food/food-04/05",
-    "09-05": "art/art-04/03",
-    "09-06": "art/art-03/09",
-    "09-07": "art/art-06/08",
-    "09-08": "art/art-01/09",
-    "09-09": "misc/misc-04/01",
-    "09-10": "flower/flower-01/04",
-    "09-11": "misc/misc-02/02",
-    "09-12": "city/city-02/04",
-    "09-13": "food/vegetables-01/04",
-    "09-14": "art/art-02/07",
-    "09-15": "art/art-01/04",
-    "09-16": "city/city-01/03",
-    "09-17": "art/art-04/02",
-    "09-18": "misc/misc-02/09",
-    "09-19": "art/art-05/01",
-    "09-20": "misc/misc-03/09",
-    "09-21": "landscapes/landscapes-03/01",
-    "09-22": "food/food-01/01",
-    "09-23": "art/art-05/05",
-    "09-24": "art/vangogh-01/03",
-    "09-25": "art/art-07/06",
-    "09-26": "misc/misc-03/05",
-    "09-27": "food/vegetables-01/06",
-    "09-28": "landscapes/landscapes-05/05",
-    "09-29": "city/streetart-01/01",
-    "09-30": "art/art-07/04",
-    "10-01": "art/art-05/09",
-    "10-02": "art/art-10/01",
-    "10-03": "art/art-10/07",
-    "10-04": "animals/animals-01/05",
-    "10-05": "art/art-03/04",
-    "10-06": "food/food-01/04",
-    "10-07": "animals/animals-01/07",
-    "10-08": "art/art-10/06",
-    "10-09": "art/art-9/10",
-    "10-10": "food/vegetables-01/08",
-    "10-11": "art/vangogh-01/16",
-    "10-12": "art/art-10/09",
-    "10-13": "art/art-07/08",
-    "10-14": "art/vangogh-01/06",
-    "10-15": "art/art-03/01",
-    "10-16": "food/food-01/11",
-    "10-17": "flower/flower-02/04",
-    "10-18": "city/city-01/04",
-    "10-19": "landscapes/landscapes-02/05",
-    "10-20": "art/art-02/06",
-    "10-21": "landscapes/landscapes-06/07",
-    "10-22": "landscapes/landscapes-02/09",
-    "10-23": "art/art-9/03",
+    "08-22": "art/art-05/07",
+    "08-23": "art/art-04/08",
+    "08-24": "art/art-9/08",
+    "08-25": "art/art-9/09",
+    "08-26": "food/vegetables-01/01",
+    "08-27": "art/art-06/07",
+    "08-28": "art/art-03/08",
+    "08-29": "art/art-04/10",
+    "08-30": "food/vegetables-01/02",
+    "08-31": "flower/flower-01/06",
+    "09-01": "art/vangogh-01/10",
+    "09-02": "art/art-06/09",
+    "09-03": "art/art-07/04",
+    "09-04": "art/art-06/06",
+    "09-05": "art/art-08/08",
+    "09-06": "food/food-05/10",
+    "09-07": "flower/flower-02/01",
+    "09-08": "flower/flower-02/10",
+    "09-09": "art/vangogh-01/07",
+    "09-10": "food/food-04/05",
+    "09-11": "art/art-10/09",
+    "09-12": "food/vegetables-01/08",
+    "09-13": "art/art-03/04",
+    "09-14": "art/vangogh-01/14",
+    "09-15": "landscapes/landscapes-02/05",
+    "09-16": "food/food-03/10",
+    "09-17": "misc/misc-01/09",
+    "09-18": "art/art-01/07",
+    "09-19": "art/art-10/10",
+    "09-20": "landscapes/landscapes-07/03",
+    "09-21": "art/art-04/09",
+    "09-22": "art/art-06/02",
+    "09-23": "landscapes/landscapes-02/09",
+    "09-24": "landscapes/landscapes-05/10",
+    "09-25": "city/city-02/03",
+    "09-26": "art/art-10/05",
+    "09-27": "art/art-9/03",
+    "09-28": "misc/misc-03/10",
+    "09-29": "art/art-02/04",
+    "09-30": "landscapes/landscapes-04/07",
+    "10-01": "landscapes/landscapes-01/03",
+    "10-02": "landscapes/landscapes-03/02",
+    "10-03": "art/art-01/09",
+    "10-04": "art/vangogh-01/13",
+    "10-05": "misc/misc-01/05",
+    "10-06": "misc/misc-02/09",
+    "10-07": "art/art-04/01",
+    "10-08": "landscapes/landscapes-07/04",
+    "10-09": "art/vangogh-01/02",
+    "10-10": "art/art-07/09",
+    "10-11": "food/food-03/06",
+    "10-12": "art/art-08/09",
+    "10-13": "city/city-01/04",
+    "10-14": "food/food-01/10",
+    "10-15": "food/food-04/10",
+    "10-16": "art/art-06/04",
+    "10-17": "art/art-02/07",
+    "10-18": "art/vangogh-01/09",
+    "10-19": "landscapes/landscapes-06/01",
+    "10-20": "misc/misc-04/04",
+    "10-21": "art/art-08/02",
+    "10-22": "landscapes/landscapes-04/05",
+    "10-23": "landscapes/landscapes-06/05",
     "10-24": "city/city-02/11",
-    "10-25": "art/art-05/07",
-    "10-26": "misc/misc-01/05",
-    "10-27": "art/art-04/10",
-    "10-28": "art/vangogh-01/13",
-    "10-29": "city/city-01/08",
-    "10-30": "art/vangogh-01/09",
-    "10-31": "art/art-05/04",
-    "11-01": "art/art-05/03",
-    "11-02": "food/food-05/04",
-    "11-03": "flower/flower-01/03",
-    "11-04": "city/city-02/10",
-    "11-05": "landscapes/landscapes-05/02",
-    "11-06": "art/art-08/03",
-    "11-07": "art/art-9/01",
-    "11-08": "art/art-04/06",
-    "11-09": "art/art-03/06",
-    "11-10": "art/art-08/08",
-    "11-11": "landscapes/landscapes-02/08",
-    "11-12": "food/food-05/10",
-    "11-13": "art/art-08/01",
-    "11-14": "landscapes/landscapes-07/03",
-    "11-15": "misc/misc-02/08",
-    "11-16": "landscapes/landscapes-03/02",
-    "11-17": "landscapes/landscapes-06/01",
-    "11-18": "flower/flower-02/10",
-    "11-19": "food/food-01/08",
-    "11-20": "art/art-9/07",
-    "11-21": "art/art-02/05",
-    "11-22": "food/food-04/06",
-    "11-23": "misc/misc-01/03",
-    "11-24": "misc/misc-03/02",
-    "11-25": "art/art-06/09",
-    "11-26": "city/streetart-01/03",
-    "11-27": "art/art-08/07",
-    "11-28": "food/food-03/09",
-    "11-29": "art/art-03/05",
-    "11-30": "misc/misc-02/01",
-    "12-01": "misc/misc-04/02",
-    "12-02": "art/art-08/10",
-    "12-03": "city/streetart-01/02",
-    "12-04": "art/art-10/08",
-    "12-05": "misc/misc-04/10",
-    "12-06": "art/art-01/07",
-    "12-07": "art/vangogh-01/14",
-    "12-08": "art/art-08/02",
-    "12-09": "misc/misc-04/04",
-    "12-10": "landscapes/landscapes-04/07",
-    "12-11": "food/food-04/10",
-    "12-12": "art/art-03/02",
-    "12-13": "art/art-9/04",
-    "12-14": "flower/flower-01/06",
-    "12-15": "landscapes/landscapes-06/09",
-    "12-16": "food/food-05/09",
-    "12-17": "food/food-01/01",
-    "12-18": "landscapes/landscapes-03/08",
-    "12-19": "misc/misc-01/04",
-    "12-20": "landscapes/landscapes-06/08",
-    "12-21": "art/art-07/08",
-    "12-22": "misc/misc-02/08",
-    "12-23": "landscapes/landscapes-06/02",
-    "12-24": "art/art-10/06",
-    "12-25": "art/art-05/10",
-    "12-26": "city/streetart-01/03",
-    "12-27": "flower/flower-01/08",
-    "12-28": "food/food-01/12",
-    "12-29": "food/food-03/04",
-    "12-30": "food/food-01/06",
-    "12-31": "city/city-01/12"
+    "10-25": "misc/misc-03/08",
+    "10-26": "art/art-03/01",
+    "10-27": "art/art-03/06",
+    "10-28": "art/vangogh-01/06",
+    "10-29": "art/art-04/03",
+    "10-30": "food/food-03/09",
+    "10-31": "art/art-10/06",
+    "11-01": "art/vangogh-01/16",
+    "11-02": "food/food-01/01",
+    "11-03": "animals/animals-01/05",
+    "11-04": "food/food-05/07",
+    "11-05": "landscapes/landscapes-07/02",
+    "11-06": "art/art-02/01",
+    "11-07": "art/art-05/05",
+    "11-08": "landscapes/landscapes-07/09",
+    "11-09": "art/art-10/07",
+    "11-10": "art/art-02/08",
+    "11-11": "art/art-04/05",
+    "11-12": "art/art-10/04",
+    "11-13": "food/food-05/04",
+    "11-14": "art/art-10/08",
+    "11-15": "art/art-03/07",
+    "11-16": "art/vangogh-01/05",
+    "11-17": "art/art-08/06",
+    "11-18": "art/art-06/03",
+    "11-19": "art/art-02/10",
+    "11-20": "misc/misc-03/05",
+    "11-21": "art/art-10/01",
+    "11-22": "landscapes/landscapes-01/08",
+    "11-23": "art/art-02/03",
+    "11-24": "misc/misc-04/01",
+    "11-25": "animals/animals-01/04",
+    "11-26": "city/city-01/03",
+    "11-27": "art/vangogh-01/15",
+    "11-28": "misc/misc-02/01",
+    "11-29": "art/art-03/10",
+    "11-30": "landscapes/landscapes-02/08",
+    "12-01": "art/vangogh-01/04",
+    "12-02": "art/art-05/03",
+    "12-03": "art/art-9/02",
+    "12-04": "art/art-04/06",
+    "12-05": "food/vegetables-01/03",
+    "12-06": "misc/misc-02/08",
+    "12-07": "landscapes/landscapes-03/03",
+    "12-08": "art/art-02/09",
+    "12-09": "food/food-04/08",
+    "12-10": "misc/misc-01/02",
+    "12-11": "art/art-01/02",
+    "12-12": "city/city-01/08",
+    "12-13": "art/art-05/02",
+    "12-14": "city/city-01/05",
+    "12-15": "city/city-01/09",
+    "12-16": "city/city-01/01",
+    "12-17": "art/art-03/05",
+    "12-18": "misc/misc-02/04",
+    "12-19": "food/food-02/05",
+    "12-20": "city/city-01/08",
+    "12-21": "misc/misc-01/09",
+    "12-22": "landscapes/landscapes-06/02",
+    "12-23": "misc/misc-04/04",
+    "12-24": "art/art-9/06",
+    "12-25": "art/vangogh-01/11",
+    "12-26": "art/art-08/10",
+    "12-27": "city/city-02/05",
+    "12-28": "art/art-03/05",
+    "12-29": "art/art-01/09",
+    "12-30": "art/art-06/01",
+    "12-31": "art/art-05/09"
   }
 }
