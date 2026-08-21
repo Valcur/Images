@@ -413,6 +413,35 @@ function generateDailyPuzzles(existing, allPuzzleIds) {
   return ordered;
 }
 
+// Si plusieurs folders partagent exactement le même titre (même objet
+// {en, fr} ou même chaine), on ajoute " - 1", " - 2", ... à la fin de
+// chaque langue pour les distinguer. Recalculé entièrement à chaque
+// exécution à partir des titres "propres" (jamais écrit dans les info.json)
+// : si un titre redevient unique, le suffixe disparaît tout seul.
+function applyDuplicateTitleSuffixes(folders) {
+  const keyOf = (title) => (typeof title === 'string' ? `s:${title}` : `o:${title.en}||${title.fr}`);
+  const groups = new Map();
+
+  for (const folder of folders) {
+    const key = keyOf(folder.title);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(folder);
+  }
+
+  for (const group of groups.values()) {
+    if (group.length <= 1) continue;
+    group.forEach((folder, idx) => {
+      const suffix = ` - ${idx + 1}`;
+      if (typeof folder.title === 'string') {
+        folder.title = folder.title + suffix;
+      } else {
+        folder.title = { ...folder.title, en: folder.title.en + suffix, fr: folder.title.fr + suffix };
+      }
+    });
+    console.log(`   🔢 ${group.length} dossiers avec le même titre → numérotés (1 à ${group.length})`);
+  }
+}
+
 // ---------- Main ----------
 
 async function main() {
@@ -470,6 +499,9 @@ async function main() {
       folderIDs,
     });
   }
+
+  // ---- Désambiguïsation des titres identiques ----
+  applyDuplicateTitleSuffixes(folders);
 
   // ---- Catégorie "nouveaute" ----
   const currentFolderIds = new Set(folders.map((f) => f.id));
